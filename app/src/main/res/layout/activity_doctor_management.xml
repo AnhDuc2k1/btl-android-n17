@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.DoctorManagementActivity">
+
+        <Button
+            android:id="@+id/themBacSi"
+            android:layout_width="152dp"
+            android:layout_height="58dp"
+            android:backgroundTint="#FFFFFF"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif-black"
+            android:padding="15dp"
+            android:text="Thêm Bác Sĩ"
+            android:textColor="#100F0F"
+            android:textSize="14sp"
+            app:backgroundTint="@color/material_dynamic_neutral40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.944"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1.5dp" />
+
+        <TextView
+            android:id="@+id/quanLyBacSi"
+            android:layout_width="219dp"
+            android:layout_height="52dp"
+            android:fontFamily="sans-serif"
+            android:text="Quản lý Bác Sĩ"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.089" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="325dp"
+            android:layout_height="3dp"
+            android:background="#2D799B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.168" />
+
+        <EditText
+            android:id="@+id/editTextTimKiemBS"
+            android:layout_width="240dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_rounded"
+            android:ems="10"
+            android:hint="Nhập tên bác sĩ"
+            android:inputType="textPersonName"
+            android:textColorHighlight="@color/black"
+            android:textColorLink="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.292"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.188" />
+
+        <Button
+            android:id="@+id/timKiemBacSi"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/search"
+            android:text="Button"
+            app:backgroundTint="@color/light_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.856"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.221"
+            app:strokeColor="#2D799B"
+            app:strokeWidth="3dp" />
+
+        <ListView
+            android:id="@+id/danhSachBacSi"
+            android:layout_width="318dp"
+            android:layout_height="376dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.661"
+            tools:listitem="@layout/list_view_doctor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
