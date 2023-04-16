@@ -1,5 +1,7 @@
 package com.ptit.healthcare.entities;
 
+import java.io.Serializable;
+
 public class User {
 
     private int id;
@@ -36,7 +38,7 @@ public class User {
         this.weight = weight;
     }
 
-    private User(String username, String email, String password, String phoneNumber, String dob, String roles, int height, int weight) {
+    public User(String username, String email, String password, String phoneNumber, String dob, String roles, int height, int weight) {
         this.username = username;
         this.email = email;
         this.password = password;

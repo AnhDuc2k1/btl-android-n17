@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-black"
         android:padding="15dp"
         android:text="Quản lý gói khám"
-        android:textColor="#100F0F"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
         app:strokeColor="#2D799B"
         app:strokeWidth="1.5dp"
         android:fontFamily="sans-serif-black"
-        android:textColor="#100F0F"
+        android:textColor="#000000"
         android:textSize="16sp" />
 
     <Button
@@ -55,7 +55,7 @@
         android:fontFamily="sans-serif-black"
         android:padding="15dp"
         android:text="Quản lý người dùng"
-        android:textColor="#100F0F"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
         android:id="@+id/imageView"
         android:layout_width="88dp"
         android:layout_height="83dp"
-        android:src="@drawable/doctor"
+        android:src="@drawable/admin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"
@@ -130,9 +130,9 @@
         android:layout_width="327dp"
         android:layout_height="31dp"
         android:text="Hệ thống quản lý chăm sóc sức khỏe"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
@@ -149,7 +149,8 @@
         android:fontFamily="sans-serif-black"
         android:padding="15dp"
         android:text="Quản Lý Bác Sĩ"
-        android:textColor="#100F0F"
+        android:textStyle="bold"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -208,7 +209,7 @@
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472"
+        app:layout_constraintVertical_bias="0.486"
         app:srcCompat="@drawable/user_icon" />
 
     <ImageView

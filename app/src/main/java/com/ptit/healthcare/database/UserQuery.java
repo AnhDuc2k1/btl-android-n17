@@ -24,7 +24,7 @@ public class UserQuery {
 
     private static final String EMAIL = "email";
 
-    private static final String PASSWORD = "passw";
+    private static final String PASSWORD = "pass";
 
     private static final String PHONE_NUMBER = "phoneNumber";
 
@@ -95,7 +95,7 @@ public class UserQuery {
     public void add(User user) {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-
+        System.out.println(user);
         values.put(NAME, user.getUsername());
         values.put(EMAIL, user.getEmail());
         values.put(PASSWORD, user.getPassword());
