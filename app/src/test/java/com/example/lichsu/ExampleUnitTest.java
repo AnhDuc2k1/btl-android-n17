@@ -1,4 +1,4 @@
-package com.ptit.healthcare;
+package com.example.lichsu;
 
 import org.junit.Test;
 

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_marginTop="630dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="40dp">
+
+        <!-- Table Heading -->
+
+        <TableRow
+            android:layout_height="67dp"
+            android:background="@color/colorGreen">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col2"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+
+        </TableRow>
+
+        <!-- Table Data -->
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row1Name"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row1Age"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row1Surname"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row2Name"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row2Age"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row2Surname"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow android:layout_height="119dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row3Name"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row3Age"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/row3Surname"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/tenbanhnhan"
+        android:layout_width="320dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginBottom="181dp"
+        android:text="  Nguyen Van A"
+        android:textColor="#4E0808"
+        android:textColorHighlight="#C52727"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <TextView
+        android:id="@+id/chuandoanbenh"
+        android:layout_width="311dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="22dp"
+        android:text="Chuẩn đoán:"
+        android:textColor="#420303"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintTop_toBottomOf="@+id/tenbanhnhan"
+        app:layout_constraintVertical_bias="0.521"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <TextView
+        android:id="@+id/bacsi"
+        android:layout_width="326dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginBottom="144dp"
+        android:text="Bác sĩ điều trị: Nguyễn Văn B"
+        android:textColor="#5C0505"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        tools:layout_editor_absoluteX="38dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

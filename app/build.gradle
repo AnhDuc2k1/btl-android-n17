@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace 'com.ptit.healthcare'
+    namespace 'com.example.lichsu'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.ptit.healthcare"
-        minSdk 19
+        applicationId "com.example.lichsu"
+        minSdk 33
         targetSdk 33
         versionCode 1
         versionName "1.0"
