@@ -1,15 +1,3 @@
 <resources>
-    <string name="app_name">LichSu</string>
-    <string name="col1">Tên thuốc</string>
-    <string name="col2">Cách dùng</string>
-    <string name="col3">Giá</string>
-    <string name="row1Name">Thuốc bổ gan</string>
-    <string name="row1Age">2 viên sau ăn</string>
-    <string name="row1Surname">200</string>
-    <string name="row2Name">Thuốc ho</string>
-    <string name="row2Age">uống sau 22h</string>
-    <string name="row2Surname">10</string>
-    <string name="row3Name">Thuốc B1</string>
-    <string name="row3Age">uống sáng</string>
-    <string name="row3Surname">100</string>
+    <string name="app_name">BaiBao</string>
 </resources>

@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.lichsu'
+    namespace 'com.example.baibao'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.lichsu"
+        applicationId "com.example.baibao"
         minSdk 33
         targetSdk 33
         versionCode 1
