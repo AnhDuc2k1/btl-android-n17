@@ -156,7 +156,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.329"
-        app:srcCompat="@drawable/user_icon" />
+        app:srcCompat="@drawable/user" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -168,7 +168,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.402"
-        app:srcCompat="@drawable/email" />
+        app:srcCompat="@drawable/gmail" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -180,7 +180,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.479"
-        app:srcCompat="@drawable/key" />
+        app:srcCompat="@drawable/password" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -192,7 +192,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.556"
-        app:srcCompat="@drawable/phone_number" />
+        app:srcCompat="@drawable/phone_call" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -204,7 +204,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.631"
-        app:srcCompat="@drawable/calendar_icon" />
+        app:srcCompat="@drawable/schedule" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -216,7 +216,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.704"
-        app:srcCompat="@drawable/weight" />
+        app:srcCompat="@drawable/scale" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -228,7 +228,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.779"
-        app:srcCompat="@drawable/ruler" />
+        app:srcCompat="@drawable/height" />
 
     <Button
         android:id="@+id/addNew"

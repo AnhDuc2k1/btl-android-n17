@@ -186,7 +186,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.315"
-        app:srcCompat="@drawable/doctor_icon" />
+        app:srcCompat="@drawable/doctor" />
 
     <ImageView
         android:id="@+id/calendarIcon"
@@ -198,7 +198,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.825"
-        app:srcCompat="@drawable/calendar_icon" />
+        app:srcCompat="@drawable/schedule" />
 
     <ImageView
         android:id="@+id/userIcon"
@@ -210,7 +210,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.486"
-        app:srcCompat="@drawable/user_icon" />
+        app:srcCompat="@drawable/user" />
 
     <ImageView
         android:id="@+id/flaskIcon"
