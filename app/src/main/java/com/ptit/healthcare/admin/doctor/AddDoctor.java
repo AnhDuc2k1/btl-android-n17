@@ -1,4 +1,4 @@
-package com.ptit.healthcare.admin;
+package com.ptit.healthcare.admin.doctor;
 
 import androidx.appcompat.app.AppCompatActivity;
 

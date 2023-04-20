@@ -1,4 +1,4 @@
-package com.ptit.healthcare.admin;
+package com.ptit.healthcare.admin.doctor;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -72,11 +71,11 @@ public class DoctorManagementActivity extends AppCompatActivity {
     }
 
     public void doOpenChildActivity(Doctor doctor) {
-        Intent intentDoctorDetail=new Intent(this, DoctorDetail.class);
+        Intent intentDoctorDetail = new Intent(this, DoctorDetail.class);
 
-        intentDoctorDetail.putExtra("idBS",Integer.toString(doctor.getId()));
+        intentDoctorDetail.putExtra("idBS", Integer.toString(doctor.getId()));
         intentDoctorDetail.putExtra("tenBS", doctor.getName());
-        intentDoctorDetail.putExtra("chuyenKhoa",doctor.getDepartment());
+        intentDoctorDetail.putExtra("chuyenKhoa", doctor.getDepartment());
         intentDoctorDetail.putExtra("SDT", doctor.getPhoneNumber());
         intentDoctorDetail.putExtra("kinhNghiem", Integer.toString(doctor.getExperience()));
         startActivityForResult(intentDoctorDetail, 2);
@@ -84,7 +83,7 @@ public class DoctorManagementActivity extends AppCompatActivity {
     }
 
     public void doOpenAddActivity() {
-        Intent intentAddDoctor = new Intent(this,AddDoctor.class);
+        Intent intentAddDoctor = new Intent(this, AddDoctor.class);
 //        startActivity(intentAddDoctor);
         startActivityForResult(intentAddDoctor, 1);
     }
@@ -92,14 +91,14 @@ public class DoctorManagementActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if((resultCode == RESULT_OK) && (requestCode == 1)){
+        if ((resultCode == RESULT_OK) && (requestCode == 1)) {
             Intent intentRefresh = new Intent(this, DoctorManagementActivity.class);
 
             startActivity(intentRefresh);
             this.finish();
         }
 
-        if((resultCode == RESULT_OK) && (requestCode == 2)){
+        if ((resultCode == RESULT_OK) && (requestCode == 2)) {
             Intent intentRefresh = new Intent(this, DoctorManagementActivity.class);
 
             startActivity(intentRefresh);
@@ -110,40 +109,39 @@ public class DoctorManagementActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        if(v.getId()==R.id.danhSachBacSi)
-        {
-            MenuInflater menuInflater=getMenuInflater();
-            menuInflater.inflate(R.menu.example_menu,menu);
+        if (v.getId() == R.id.danhSachBacSi) {
+            MenuInflater menuInflater = getMenuInflater();
+            menuInflater.inflate(R.menu.example_menu, menu);
         }
     }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        AdapterView.AdapterContextMenuInfo info=(AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
-        if (item.getItemId()==R.id.menuDelete) {
+        if (item.getItemId() == R.id.menuDelete) {
             DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
             Doctor doctor = (Doctor) listViewBS.getAdapter().getItem(info.position);
 
             int doctorId = doctor.getId();
 
-            Toast.makeText(DoctorManagementActivity.this,"You are deleting idDoctor: "+
-                    String.valueOf(doctorId),Toast.LENGTH_SHORT).show();
+            Toast.makeText(DoctorManagementActivity.this, "You are deleting idDoctor: " +
+                    String.valueOf(doctorId), Toast.LENGTH_SHORT).show();
             int idDelete = doctorQuery.delete(doctorId);
 
             Intent intentRefresh = new Intent(this, DoctorManagementActivity.class);
             startActivity(intentRefresh);
             this.finish();
         }
-        if (item.getItemId()==R.id.menuQuickShow) {
+        if (item.getItemId() == R.id.menuQuickShow) {
             DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
             Doctor doctor = (Doctor) listViewBS.getAdapter().getItem(info.position);
 
             int doctorId = doctor.getId();
 
-            Toast.makeText(DoctorManagementActivity.this,"You are QuickShow: "+
-                    String.valueOf(doctorId),Toast.LENGTH_SHORT).show();
+            Toast.makeText(DoctorManagementActivity.this, "You are QuickShow: " +
+                    String.valueOf(doctorId), Toast.LENGTH_SHORT).show();
 
         }
         return super.onContextItemSelected(item);

@@ -7,18 +7,38 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare"
         tools:targetApi="31">
         <activity
-            android:name=".admin.AddDoctor"
+            android:name=".admin.doctor.AddDoctor"
             android:exported="false" />
         <activity
-            android:name=".admin.DoctorDetail"
+            android:name=".admin.doctor.DoctorDetail"
+            android:exported="false" />
+        <activity android:name=".admin.doctor.DoctorManagementActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.DoctorManagementActivity"
+            android:name=".admin.labtest.UpdateLabtestDetail"
+            android:exported="false" />
+        <activity
+            android:name=".admin.labtest.LabtestDetail"
+            android:exported="false" />
+        <activity
+            android:name=".admin.labtest.LabtestManagement"
+            android:exported="false" />
+        <activity
+            android:name=".admin.user.UpdateUserDetail"
+            android:exported="false" />
+        <activity
+            android:name=".admin.user.UserDetail"
+            android:exported="false" />
+        <activity
+            android:name=".admin.user.UserManagement"
+            android:exported="false" />
+
+        <activity
+            android:name=".admin.AdminManagement"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
