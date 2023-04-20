@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.ptit.healthcare.admin.labtest.LabtestManagement;
 import com.ptit.healthcare.admin.user.UserManagement;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
@@ -45,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), UserManagement.class);
+                startActivity(intent);
+            }
+        });
+
+        btnQuanLyGoiKham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), LabtestManagement.class);
                 startActivity(intent);
             }
         });
