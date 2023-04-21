@@ -11,8 +11,9 @@
         android:id="@+id/logoImage"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo2"
@@ -22,7 +23,10 @@
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
         android:text="P-HEALTHCARE"
         android:textColor="#2740CC"
         android:textSize="34sp"
@@ -32,15 +36,15 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoImage"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.321" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="40dp"
         android:background="#6143BFF6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +53,7 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/username"
+            android:id="@+id/phonenumber1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
@@ -59,10 +63,10 @@
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/edPhoneNumber"
+            android:id="@+id/edPhoneNum1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@id/username"
+            android:layout_below="@id/phonenumber1"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="16dp"
@@ -73,15 +77,16 @@
             android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edPhoneNumber"
+            android:layout_below="@id/edPhoneNum1"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="16dp"
             android:text="Mật khẩu"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+           />
 
         <EditText
-            android:id="@+id/edPassword"
+            android:id="@+id/edPassword1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/password"
@@ -91,7 +96,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/forgotPassword"
@@ -100,33 +105,35 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="50dp"
+            android:backgroundTint="#3092DF"
             android:text="Đăng nhập" />
 
         <TextView
             android:id="@+id/forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edPassword"
-            android:layout_alignStart="@+id/buttonLogin"
-            android:layout_alignEnd="@+id/buttonLogin"
+            android:layout_below="@id/edPassword1"
+            android:layout_alignStart="@+id/btnLogin"
+            android:layout_alignEnd="@+id/btnLogin"
             android:layout_marginTop="8dp"
             android:text="Quên mật khẩu"
             android:textAlignment="center"
             android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/register"
+        <Button
+            android:id="@+id/backRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buttonLogin"
+            android:layout_below="@id/btnLogin"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="50dp"
-            android:text="Đăng ký tài khoản mới"
+            android:backgroundTint="#3092DF"
+            android:text="Đăng ký tài khoản"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="#EEF4F6" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -143,8 +150,8 @@
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="19dp"
-            android:layout_marginBottom="130dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="176dp"
             app:srcCompat="@drawable/lock" />
 
 
@@ -154,31 +161,31 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="220dp"
-        android:layout_marginBottom="500dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="230dp"
         android:text="Xin chào!"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.362"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="240dp"
         android:text="Vui lòng đăng nhập tài khoản của bạn"
         android:textSize="17dp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
