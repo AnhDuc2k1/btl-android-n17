@@ -27,9 +27,9 @@ public class DoctorDetail extends AppCompatActivity {
         Intent intent= DoctorDetail.this.getIntent();
 
         final EditText editTextIDBS =(EditText)findViewById(R.id.edID);
-        final EditText editTextTenBS =(EditText)findViewById(R.id.edTenBS);
+        final EditText editTextTenBS =(EditText)findViewById(R.id.edUsername3);
         final EditText editTextChuyenKhoa = (EditText)findViewById(R.id.edChuyenKhoa);
-        final EditText editTextSDT =(EditText)findViewById(R.id.edSDT);
+        final EditText editTextSDT =(EditText)findViewById(R.id.edPhoneNum3);
         final EditText editTextKinhNghiem =(EditText)findViewById(R.id.edKinhNghiem);
 
         editTextIDBS.setText(intent.getStringExtra("idBS"));

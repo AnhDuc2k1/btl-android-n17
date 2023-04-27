@@ -90,7 +90,7 @@
                     android:textStyle="bold"></TextView>
 
                 <EditText
-                    android:id="@+id/edTenBS"
+                    android:id="@+id/edUsername3"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     tools:ignore="TouchTargetSizeCheck"></EditText>
@@ -118,7 +118,7 @@
                     android:textStyle="bold"></TextView>
 
                 <EditText
-                    android:id="@+id/edSDT"
+                    android:id="@+id/edPhoneNum3"
                     android:layout_width="164dp"
                     android:textSize="14sp"
                     android:textStyle="bold"></EditText>

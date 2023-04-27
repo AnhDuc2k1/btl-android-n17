@@ -21,6 +21,7 @@ public class Home extends AppCompatActivity {
 
         Intent userIntent = Home.this.getIntent();
         String usernameIntent = userIntent.getStringExtra("username");
+        int id = Integer.valueOf(userIntent.getStringExtra("userId"));
 
 
         username = (EditText) findViewById(R.id.edUsername2);
