@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.ptit.healthcare.R;
-import com.ptit.healthcare.admin.doctor.DoctorManagementActivity;
+import com.ptit.healthcare.admin.doctor.DoctorManagement;
 import com.ptit.healthcare.admin.labtest.LabtestManagement;
 import com.ptit.healthcare.admin.user.UserManagement;
 
@@ -57,7 +57,7 @@ public class AdminManagement extends AppCompatActivity {
         btnQuanLyBacSi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DoctorManagementActivity.class);
+                Intent intent = new Intent(view.getContext(), DoctorManagement.class);
                 startActivity(intent);
             }
         });

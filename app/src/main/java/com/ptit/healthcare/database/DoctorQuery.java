@@ -51,6 +51,33 @@ public class DoctorQuery {
         return doctors;
     }
 
+    public List<Doctor> findDoctorByName(String name) {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " +
+                NAME + " LIKE '%" + name + "%'";
+
+        List<Doctor> listBS = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                Doctor doctor = new Doctor();
+                doctor.setId(cursor.getInt(0));
+                doctor.setName(cursor.getString(1));
+                doctor.setDepartment(cursor.getString(2));
+                doctor.setPhoneNumber(cursor.getString(3));
+                doctor.setExperience(cursor.getInt(4));
+
+                listBS.add(doctor);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return listBS;
+    }
+
     public Doctor getSingle(int id) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{ID, NAME, DEPARTMENT, PHONE_NUMBER,

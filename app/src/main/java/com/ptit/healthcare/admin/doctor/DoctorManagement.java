@@ -22,7 +22,7 @@ import com.ptit.healthcare.entities.Doctor;
 
 import java.util.List;
 
-public class DoctorManagementActivity extends AppCompatActivity {
+public class DoctorManagement extends AppCompatActivity {
 
     Button btnThemBS, btnTimKiem;
     EditText editTextTimKiemBS;
@@ -37,20 +37,53 @@ public class DoctorManagementActivity extends AppCompatActivity {
         listViewBS = findViewById(R.id.danhSachBacSi);
         editTextTimKiemBS = findViewById(R.id.editTextTimKiemBS);
 
+        LoadListBS();
+        
         btnThemBS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doOpenAddActivity();
             }
         });
-        LoadListBS();
+        
+        btnTimKiem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = editTextTimKiemBS.getText().toString();
+                loadListBSFindByName(name);
+            }
+        });
     }
 
     protected void LoadListBS() {
         DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
         final List<Doctor> listBS = doctorQuery.getAll();
 
-        ListDoctorAdapter adapter = new ListDoctorAdapter(DoctorManagementActivity.this, listBS);
+        ListDoctorAdapter adapter = new ListDoctorAdapter(DoctorManagement.this, listBS);
+        listViewBS.setAdapter(adapter);
+
+        listViewBS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Doctor doctor = listBS.get(i);
+                doOpenChildActivity(doctor);
+            }
+        });
+
+        listViewBS.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                return false;
+            }
+        });
+        registerForContextMenu(listViewBS);
+    }
+
+    public void loadListBSFindByName(String name){
+        DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
+        final List<Doctor> listBS = doctorQuery.findDoctorByName(name);
+
+        ListDoctorAdapter adapter = new ListDoctorAdapter(DoctorManagement.this, listBS);
         listViewBS.setAdapter(adapter);
 
         listViewBS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,14 +125,14 @@ public class DoctorManagementActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if ((resultCode == RESULT_OK) && (requestCode == 1)) {
-            Intent intentRefresh = new Intent(this, DoctorManagementActivity.class);
+            Intent intentRefresh = new Intent(this, DoctorManagement.class);
 
             startActivity(intentRefresh);
             this.finish();
         }
 
         if ((resultCode == RESULT_OK) && (requestCode == 2)) {
-            Intent intentRefresh = new Intent(this, DoctorManagementActivity.class);
+            Intent intentRefresh = new Intent(this, DoctorManagement.class);
 
             startActivity(intentRefresh);
             this.finish();
@@ -126,23 +159,13 @@ public class DoctorManagementActivity extends AppCompatActivity {
 
             int doctorId = doctor.getId();
 
-            Toast.makeText(DoctorManagementActivity.this, "You are deleting idDoctor: " +
+            Toast.makeText(DoctorManagement.this, "You are deleting idDoctor: " +
                     String.valueOf(doctorId), Toast.LENGTH_SHORT).show();
-            int idDelete = doctorQuery.delete(doctorId);
+            doctorQuery.delete(doctorId);
 
-            Intent intentRefresh = new Intent(this, DoctorManagementActivity.class);
+            Intent intentRefresh = new Intent(this, DoctorManagement.class);
             startActivity(intentRefresh);
             this.finish();
-        }
-        if (item.getItemId() == R.id.menuQuickShow) {
-            DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
-            Doctor doctor = (Doctor) listViewBS.getAdapter().getItem(info.position);
-
-            int doctorId = doctor.getId();
-
-            Toast.makeText(DoctorManagementActivity.this, "You are QuickShow: " +
-                    String.valueOf(doctorId), Toast.LENGTH_SHORT).show();
-
         }
         return super.onContextItemSelected(item);
     }
