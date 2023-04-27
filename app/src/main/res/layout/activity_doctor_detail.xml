@@ -95,7 +95,7 @@
                     android:textStyle="bold"></TextView>
 
                 <EditText
-                    android:id="@+id/edTenBS"
+                    android:id="@+id/edUsername3"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="-30dp"
@@ -129,8 +129,13 @@
                     android:textStyle="bold"></TextView>
 
                 <EditText
+<<<<<<< HEAD
                     android:id="@+id/edSDT"
                     android:layout_width="180dp"
+=======
+                    android:id="@+id/edPhoneNum3"
+                    android:layout_width="164dp"
+>>>>>>> 5b78bc2efcfbb6452e2c386541c43586aa0598a4
                     android:textSize="14sp"
                     android:layout_marginLeft="-30dp"
                     android:textStyle="bold"></EditText>

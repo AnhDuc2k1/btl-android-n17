@@ -43,7 +43,6 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         User user1 = userQuery.getUserByPhone(phone);
                         Intent intent = new Intent(view.getContext(), Home.class);
-                        Intent intent2 = new Intent(view.getContext(), UserProfile.class);
                         intent.putExtra("idUser", Integer.toString(user1.getId()));
                         intent.putExtra("username", user1.getUsername());
                         startActivity(intent);

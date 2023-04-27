@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edUsername1" />
 
     <EditText
-        android:id="@+id/edPassword"
+        android:id="@+id/edPassword3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -96,7 +96,7 @@
         android:textColor="@color/black"
         android:textSize="16dp"
         app:layout_constraintStart_toEndOf="@+id/imageView14"
-        app:layout_constraintTop_toBottomOf="@+id/edPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/edPassword3" />
 
     <ImageView
         android:id="@+id/imageView11"

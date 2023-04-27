@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
-import com.ptit.healthcare.database.DatabaseHelper;
 import com.ptit.healthcare.database.UserQuery;
 
 public class Register extends AppCompatActivity {
@@ -23,7 +22,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         username = (EditText) findViewById(R.id.edUsername1);
         phonenumber = (EditText) findViewById(R.id.edPhoneNum1);
-        password = (EditText) findViewById(R.id.edPassword);
+        password = (EditText) findViewById(R.id.edPassword3);
         repassword = (EditText) findViewById(R.id.edRePassword);
         register = (Button) findViewById(R.id.btnRegister);
         backtoLogin = (Button) findViewById(R.id.btnBackLogin);
