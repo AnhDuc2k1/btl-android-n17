@@ -130,4 +130,55 @@ public class UserQuery {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         return db.delete(TABLE_NAME, ID + "=?", new String[] {String.valueOf(id)});
     }
+    public boolean insertData(String username, String phoneNumber, String pass){
+        SQLiteDatabase MyDB = databaseHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", username);
+        contentValues.put("phoneNumber", phoneNumber);
+        contentValues.put("pass", pass);
+        long result = MyDB.insert("users", null, contentValues);
+        if(result==-1) return false;
+        else
+            return true;
+    }
+    public boolean checkphonenumber(String phoneNumber){
+        SQLiteDatabase MyDB = databaseHelper.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from users where phoneNumber = ?", new String[]{phoneNumber});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public boolean checkphonenumberpassword(String phoneNumber, String pass){
+        SQLiteDatabase MyDB = databaseHelper.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from users where phoneNumber=? and pass = ?", new String[]{phoneNumber, pass});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+
+    public User getUserByPhone(String phone) {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{ID, NAME, EMAIL, PASSWORD, PHONE_NUMBER,
+                        DOB, ROLES, HEIGHT, WEIGHT},
+                PHONE_NUMBER + "=?",
+                new String[]{String.valueOf(phone)},
+                null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        User user = new User(cursor.getInt(0), cursor.getString(1),
+                cursor.getString(2), cursor.getString(3),
+                cursor.getString(4), cursor.getString(5),
+                cursor.getString(6), cursor.getInt(7), cursor.getInt(8));
+
+        cursor.close();
+        db.close();
+
+        return user;
+    }
+
 }

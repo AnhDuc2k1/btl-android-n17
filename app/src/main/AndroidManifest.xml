@@ -11,12 +11,35 @@
         android:theme="@style/Theme.HealthCare"
         tools:targetApi="31">
         <activity
+            android:name=".user.AboutUs"
+            android:exported="false" />
+        <activity
+            android:name=".user.UserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".user.Login"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>/>
+        </activity>
+        <activity
+            android:name=".user.Home"
+            android:exported="false"/>
+
+        <activity
+            android:name=".user.Register"
+            android:exported="false" />
+        <activity
             android:name=".admin.doctor.AddDoctor"
             android:exported="false" />
         <activity
             android:name=".admin.doctor.DoctorDetail"
             android:exported="false" />
-        <activity android:name=".admin.doctor.DoctorManagementActivity"
+        <activity
+            android:name=".admin.doctor.DoctorManagementActivity"
             android:exported="false" />
         <activity
             android:name=".admin.labtest.UpdateLabtestDetail"
@@ -36,15 +59,10 @@
         <activity
             android:name=".admin.user.UserManagement"
             android:exported="false" />
-
         <activity
             android:name=".admin.AdminManagement"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

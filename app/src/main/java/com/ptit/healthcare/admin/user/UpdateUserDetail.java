@@ -2,7 +2,6 @@ package com.ptit.healthcare.admin.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +32,7 @@ public class UpdateUserDetail extends AppCompatActivity {
 
         Intent intent = UpdateUserDetail.this.getIntent();
 
-        editTextUsername = (EditText) findViewById(R.id.username1);
+        editTextUsername = (EditText) findViewById(R.id.edUsername1);
         editTextEmail = (EditText) findViewById(R.id.email1);
         editTextPassword = (EditText) findViewById(R.id.password1);
         editTextPhoneNumber = (EditText) findViewById(R.id.phoneNumber1);

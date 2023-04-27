@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.ptit.healthcare.R;
+
 public class AboutUs extends AppCompatActivity {
 
     @Override
