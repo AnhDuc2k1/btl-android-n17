@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.database.UserQuery;
+import com.ptit.healthcare.entities.User;
 
 public class Home extends AppCompatActivity {
     EditText username;
@@ -21,8 +23,7 @@ public class Home extends AppCompatActivity {
 
         Intent userIntent = Home.this.getIntent();
         String usernameIntent = userIntent.getStringExtra("username");
-        int id = Integer.valueOf(userIntent.getStringExtra("userId"));
-
+        int id = Integer.valueOf(userIntent.getStringExtra("idUser"));
 
         username = (EditText) findViewById(R.id.edUsername2);
         profile = (ImageButton) findViewById(R.id.btnProfile);
@@ -37,6 +38,16 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), UserProfile.class);
+                UserQuery userQuery = new UserQuery(getBaseContext());
+                User user = userQuery.getSingle(id);
+                intent.putExtra("id", String.valueOf(user.getId()));
+                intent.putExtra("username", user.getUsername());
+                intent.putExtra("email", user.getEmail());
+                intent.putExtra("password", user.getPassword());
+                intent.putExtra("phoneNumber", user.getPhoneNumber());
+                intent.putExtra("dob", user.getDob());
+                intent.putExtra("height", String.valueOf(user.getHeight()));
+                intent.putExtra("weight", String.valueOf(user.getWeight()));
                 startActivity(intent);
             }
         });

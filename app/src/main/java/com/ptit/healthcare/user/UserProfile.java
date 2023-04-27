@@ -39,7 +39,7 @@ public class UserProfile extends AppCompatActivity {
         int id = Integer.parseInt(intent.getStringExtra("id").toString());
         editTextUsername.setText(intent.getStringExtra("username"));
         editTextEmail.setText(intent.getStringExtra("email"));
-        editTextPhoneNum.setText(intent.getStringExtra("phonenumber"));
+        editTextPhoneNum.setText(intent.getStringExtra("phoneNumber"));
         editTextPass.setText(intent.getStringExtra("password"));
         editTextDob.setText(intent.getStringExtra("dob"));
         editTextHeight.setText(intent.getStringExtra("height"));
