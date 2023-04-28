@@ -39,13 +39,16 @@ public class DetailActitvity extends AppCompatActivity {
         imageView.setImageResource(getResources().getIdentifier(factnews.getPathImage(), "drawable", getPackageName()));
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Uri gmmIntentUri = Uri.parse("geo:0, 0?q=" + factnews.getName());
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+                //Intent viewIntent=new Intent("android.intent.action.VIEW", Uri.parse("http://www.stackoverflow.com/"));
+                //Uri uri = Uri.parse("http://www.google.com");
+                Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(factnews.getGotourl()));
+                //Intent viewIntent=new Intent("android.intent.action.VIEW", gmmIntentUri);
+                viewIntent.setPackage("com.android.chrome");
+                startActivity(viewIntent);
+
             }
         });
     }

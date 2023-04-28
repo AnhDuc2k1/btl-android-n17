@@ -10,17 +10,17 @@ public class Factnews implements Serializable {
 
     private String description;
 
-    private String map;
+    private String gotourl;
 
     public Factnews() {
 
     }
 
-    public Factnews(String pathImage, String name, String description, String map) {
+    public Factnews(String pathImage, String name, String description, String gotourl) {
         this.pathImage = pathImage;
         this.name = name;
         this.description = description;
-        this.map = map;
+        this.gotourl = gotourl;
     }
 
     public String getPathImage() {
@@ -47,11 +47,11 @@ public class Factnews implements Serializable {
         this.description = description;
     }
 
-    public String getMap() {
-        return map;
+    public String getGotourl() {
+        return gotourl;
     }
 
-    public void setMap(String map) {
-        this.map = map;
+    public void setGotourl(String gotourl) {
+        this.gotourl = gotourl;
     }
 }
