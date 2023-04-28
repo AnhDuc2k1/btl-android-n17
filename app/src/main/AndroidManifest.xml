@@ -19,11 +19,11 @@
         <activity
             android:name=".user.Login"
             android:exported="true">
-<!--        <intent-filter>-->
-<!--            <action android:name="android.intent.action.MAIN" />-->
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-<!--            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>/>-->
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
             android:name=".user.Home"
@@ -40,13 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".admin.doctor.DoctorManagement"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>/>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".admin.labtest.UpdateLabtestDetail"
             android:exported="false" />
@@ -67,7 +61,7 @@
             android:exported="false" />
         <activity
             android:name=".admin.AdminManagement"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
     </application>
