@@ -1,32 +1,28 @@
-package com.example.baibao;
-
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.text.ParcelableSpan;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.news;
 
 import java.io.Serializable;
 
-public class Detail extends AppCompatActivity implements Serializable {
+public class Factnews implements Serializable {
 
     private String pathImage;
 
-    private String tieude;
+    private String name;
 
     private String description;
 
+    private String map;
 
-    public Detail() {
+    public Factnews() {
 
     }
 
-    public Detail(String pathImage, String tieude, String description) {
+    public Factnews(String pathImage, String name, String description, String map) {
         this.pathImage = pathImage;
-        this.tieude = tieude;
+        this.name = name;
         this.description = description;
+        this.map = map;
     }
+
     public String getPathImage() {
         return pathImage;
     }
@@ -36,11 +32,11 @@ public class Detail extends AppCompatActivity implements Serializable {
     }
 
     public String getName() {
-        return tieude;
+        return name;
     }
 
     public void setName(String name) {
-        this.tieude = tieude;
+        this.name = name;
     }
 
     public String getDescription() {
@@ -51,5 +47,11 @@ public class Detail extends AppCompatActivity implements Serializable {
         this.description = description;
     }
 
+    public String getMap() {
+        return map;
+    }
 
+    public void setMap(String map) {
+        this.map = map;
+    }
 }

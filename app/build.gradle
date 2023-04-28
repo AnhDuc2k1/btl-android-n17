@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.baibao'
+    namespace 'com.example.news'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.baibao"
+        applicationId "com.example.news"
         minSdk 33
         targetSdk 33
         versionCode 1

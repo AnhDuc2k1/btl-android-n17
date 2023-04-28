@@ -1,4 +1,4 @@
-package com.example.baibao;
+package com.example.news;
 
 import org.junit.Test;
 
