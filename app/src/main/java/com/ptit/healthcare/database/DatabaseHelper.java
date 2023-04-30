@@ -21,8 +21,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sqlQuery = "CREATE TABLE article (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "pathImage TEXT, " +
                 "name_article TEXT, " +
-                "paths TEXT)";
+                "description TEXT, " +
+                "url TEXT)";
         db.execSQL(sqlQuery);
 
         sqlQuery = "CREATE TABLE users (" +
@@ -62,7 +64,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         sqlQuery = "CREATE TABLE orders (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "startDate TEXT, " +
+                "orderDate TEXT, " +
+                "status TEXT, " +
                 "userID INTEGER, " +
                 "FOREIGN KEY(userID) REFERENCES users(id))";
         db.execSQL(sqlQuery);

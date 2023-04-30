@@ -34,9 +34,11 @@ public class ListDoctorAdapter extends ArrayAdapter<Doctor> {
 
         TextView tenBS = convertView.findViewById(R.id.textViewTenBS);
         TextView chuyenKhoa = convertView.findViewById(R.id.textViewChuyenKhoa);
+        TextView kinhNghiem = convertView.findViewById(R.id.textViewKinhNghiem);
 
-        tenBS.setText(doctor.getName());
-        chuyenKhoa.setText("Chuyên khoa: " + doctor.getDepartment());
+        tenBS.setText("Bác sĩ" + doctor.getName());
+        chuyenKhoa.setText("Chuyên khoa " + doctor.getDepartment());
+        kinhNghiem.setText("Kinh nghiệm: " + doctor.getExperience() + " năm");
 
         return convertView;
     }

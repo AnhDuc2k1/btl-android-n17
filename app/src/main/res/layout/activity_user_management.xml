@@ -66,7 +66,7 @@
         android:id="@+id/search"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:background="@drawable/search_icon"
+        android:background="@drawable/search"
         android:text=""
         app:backgroundTint="#19A7CE"
         app:layout_constraintBottom_toBottomOf="parent"

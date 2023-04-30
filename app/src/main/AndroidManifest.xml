@@ -11,26 +11,46 @@
         android:theme="@style/Theme.HealthCare"
         tools:targetApi="31">
         <activity
+            android:name=".user.booking.Booking"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".user.booking.DoctorInfo"
+            android:exported="false" />
+        <activity
+            android:name=".user.booking.BookingDoctor"
+            android:exported="false" />
+        <activity
+            android:name=".user.booking.LabtestInfo"
+            android:exported="false" />
+        <activity
+            android:name=".user.booking.BookingLabtest"
+            android:exported="false" />
+        <activity
             android:name=".user.AboutUs"
             android:exported="false" />
         <activity
             android:name=".user.UserProfile"
             android:exported="false" />
         <activity
-            android:name=".user.Login"
+            android:name=".user.authentication.Login"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".user.Home"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
-            android:name=".user.Register"
+            android:name=".user.authentication.Register"
             android:exported="false" />
         <activity
             android:name=".admin.doctor.AddDoctor"
@@ -61,9 +81,7 @@
             android:exported="false" />
         <activity
             android:name=".admin.AdminManagement"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

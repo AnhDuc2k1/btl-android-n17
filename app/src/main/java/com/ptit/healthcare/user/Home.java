@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
+import com.ptit.healthcare.user.booking.BookingLabtest;
 
 public class Home extends AppCompatActivity {
     EditText username;
@@ -49,6 +50,14 @@ public class Home extends AppCompatActivity {
                 intent.putExtra("height", String.valueOf(user.getHeight()));
                 intent.putExtra("weight", String.valueOf(user.getWeight()));
                 startActivity(intent);
+            }
+        });
+
+        service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), BookingLabtest.class);
+                intent.putExtra("userId", String.valueOf(id));
             }
         });
 

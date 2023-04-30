@@ -11,10 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
-import com.ptit.healthcare.database.DoctorQuery;
 import com.ptit.healthcare.database.UserQuery;
-import com.ptit.healthcare.entities.Doctor;
 import com.ptit.healthcare.entities.User;
+import com.ptit.healthcare.user.authentication.Login;
 
 public class UserProfile extends AppCompatActivity {
     Button btnCapNhat, btnLogout;

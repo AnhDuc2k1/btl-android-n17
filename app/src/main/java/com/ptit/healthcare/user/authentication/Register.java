@@ -1,4 +1,4 @@
-package com.ptit.healthcare.user;
+package com.ptit.healthcare.user.authentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,7 @@ public class Register extends AppCompatActivity {
     EditText phonenumber, username, password, repassword;
     Button register, backtoLogin;
     UserQuery userQuery;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,24 +37,24 @@ public class Register extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
 
-                if(user.equals("")||phone.equals("")||pass.equals("")||repass.equals(""))
+                if (user.equals("") || phone.equals("") || pass.equals("") || repass.equals(""))
                     Toast.makeText(Register.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-                else{
-                    if(pass.equals(repass)){
+                else {
+                    if (pass.equals(repass)) {
                         Boolean checkphone = userQuery.checkphonenumber(phone);
-                        if(checkphone==false){
-                            Boolean insert = userQuery.insertData(user,phone,pass);
-                            if(insert==true){
+                        if (checkphone == false) {
+                            Boolean insert = userQuery.insertData(user, phone, pass);
+                            if (insert == true) {
                                 Toast.makeText(Register.this, "Đăng ký tài khoản thành công", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), Login.class);
                                 startActivity(intent);
-                            }else{
+                            } else {
                                 Toast.makeText(Register.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                             }
-                        } else{
+                        } else {
                             Toast.makeText(Register.this, "Người dùng đã tồn tại. Vui lòng đăng nhập!", Toast.LENGTH_SHORT).show();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(Register.this, "Các mật khẩu đã nhập không khớp. Hãy nhập lại!", Toast.LENGTH_SHORT).show();
                     }
 
