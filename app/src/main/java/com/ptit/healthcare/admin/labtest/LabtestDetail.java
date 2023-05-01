@@ -4,21 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.LabtestQuery;
 import com.ptit.healthcare.entities.Labtest;
 
-public class LabtestDetail extends AppCompatActivity {
+public class LabtestDetail extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText editTextLabtestName;
     EditText editTextPrice;
     EditText editTextDescription;
-
     Button btnAddNewLabtest;
+    Spinner spinnerLabtestDepartMent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,13 @@ public class LabtestDetail extends AppCompatActivity {
         editTextLabtestName = findViewById(R.id.labtestName);
         editTextPrice = findViewById(R.id.price);
         editTextDescription = findViewById(R.id.description);
+        spinnerLabtestDepartMent = findViewById(R.id.labtestDepartMent);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.department, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerLabtestDepartMent.setAdapter(adapter);
+        spinnerLabtestDepartMent.setOnItemSelectedListener(this);
 
         btnAddNewLabtest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,5 +63,15 @@ public class LabtestDetail extends AppCompatActivity {
         editTextPrice.setText("");
         editTextLabtestName.setText("");
         editTextDescription.setText("");
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

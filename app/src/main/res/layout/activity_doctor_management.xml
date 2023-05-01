@@ -75,11 +75,9 @@
                     android:layout_width="152dp"
                     android:layout_height="58dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="38dp"
+                    android:layout_marginTop="20dp"
                     android:backgroundTint="#FFFFFF"
-
                     android:fontFamily="sans-serif-black"
-                    android:padding="15dp"
                     android:text="Thêm Bác Sĩ"
                     android:textColor="#100F0F"
                     android:textSize="14sp"

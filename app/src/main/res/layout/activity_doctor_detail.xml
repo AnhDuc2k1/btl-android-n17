@@ -109,11 +109,11 @@
                     android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
-                <EditText
-                    android:id="@+id/edChuyenKhoa"
+                <Spinner
+                    android:id="@+id/spinnerChuyenKhoa"
                     android:textSize="14sp"
                     android:layout_marginLeft="-30dp"
-                    android:textStyle="bold"></EditText>
+                    android:textStyle="bold"></Spinner>
             </TableRow>
 
             <TableRow android:layout_marginTop="20dp">
@@ -147,7 +147,8 @@
                     android:id="@+id/edKinhNghiem"
                     android:textSize="14sp"
                     android:layout_marginLeft="-30dp"
-                    android:textStyle="bold"></EditText>
+                    android:textStyle="bold"
+                    android:inputType="number"></EditText>
             </TableRow>
 
             <TableRow android:layout_marginTop="20dp">
@@ -169,7 +170,7 @@
             <Button
                 android:id="@+id/btnCapNhat"
                 android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:text="Cập nhật"
@@ -181,7 +182,7 @@
             <Button
                 android:id="@+id/btnHuy"
                 android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:text="Hủy"
                 android:textColor="#100F0F"
                 app:backgroundTint="@color/white"

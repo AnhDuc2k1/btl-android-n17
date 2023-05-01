@@ -82,7 +82,7 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dateTimeAdmin"
         android:layout_width="184dp"
         android:layout_height="19dp"
         android:text="Monday, 1 May 2023"

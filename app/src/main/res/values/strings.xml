@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">HealthCare</string>
+
+    <string-array name="department">
+        <item>Khoa hô hấp</item>
+        <item>Khoa nội chung</item>
+        <item>Khoa ngoại chung</item>
+        <item>Khoa cơ - xương khớp</item>
+        <item>Khoa răng - hàm - mặt</item>
+        <item>Khoa tai mũi họng</item>
+    </string-array>
 </resources>

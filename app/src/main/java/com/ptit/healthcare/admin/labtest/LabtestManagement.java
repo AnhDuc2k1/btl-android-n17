@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,12 +28,19 @@ public class LabtestManagement extends AppCompatActivity {
 
     Button btnAddNewLabtest;
 
+    Button btnSearchLabtestButton;
+
+    EditText editTextSearchLabtestField;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_labtest_management);
 
         btnAddNewLabtest = findViewById(R.id.addLabtest);
+        btnSearchLabtestButton = findViewById(R.id.searchLabtestButton);
+        editTextSearchLabtestField = findViewById(R.id.searchLabtestField);
 
         btnAddNewLabtest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,11 +50,60 @@ public class LabtestManagement extends AppCompatActivity {
             }
         });
         loadListLabtest();
+
+        btnSearchLabtestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = editTextSearchLabtestField.getText().toString();
+                loadListLabtestByName(name);
+            }
+        });
+
+        editTextSearchLabtestField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                loadListLabtest();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     protected void loadListLabtest() {
         LabtestQuery db = new LabtestQuery(getBaseContext());
         List<Labtest> labtestList = db.getAll();
+        ListView listLabtestView = (ListView) findViewById(R.id.listLabtest);
+        ListLabtestAdapter labtestAdapter = new ListLabtestAdapter(this, labtestList);
+        listLabtestView.setAdapter(labtestAdapter);
+
+        listLabtestView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                doOpenChildActivity(labtestList.get(position));
+            }
+        });
+
+        listLabtestView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                return false;
+            }
+        });
+
+        registerForContextMenu(listLabtestView);
+    }
+
+    protected void loadListLabtestByName(String name) {
+        LabtestQuery db = new LabtestQuery(getBaseContext());
+        List<Labtest> labtestList = db.getAllLabtestByName(name);
         ListView listLabtestView = (ListView) findViewById(R.id.listLabtest);
         ListLabtestAdapter labtestAdapter = new ListLabtestAdapter(this, labtestList);
         listLabtestView.setAdapter(labtestAdapter);

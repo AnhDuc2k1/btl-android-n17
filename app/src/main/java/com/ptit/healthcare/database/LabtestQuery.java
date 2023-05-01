@@ -53,6 +53,30 @@ public class LabtestQuery {
         return labtests;
     }
 
+    public List<Labtest> getAllLabtestByName(String name) {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + NAME
+                + " LIKE '%" + name + "%'";
+        List<Labtest> labtestList = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                Labtest labtest = new Labtest();
+                labtest.setId(cursor.getInt(0));
+                labtest.setName(cursor.getString(1));
+                labtest.setPrice(cursor.getInt(2));
+                labtest.setDescription(cursor.getString(3));
+                labtestList.add(labtest);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return labtestList;
+    }
+
     public Labtest getSingle(int id) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[] {ID, NAME, PRICE, DESCRIPTION}, ID + "=?",

@@ -69,6 +69,35 @@ public class UserQuery {
         return users;
     }
 
+    public List<User> findAllByName(String name) {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + NAME
+                + " LIKE '%" + name + "%'";
+
+        List<User> users = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                User user = new User();
+                user.setId(cursor.getInt(0));
+                user.setUsername(cursor.getString(1));
+                user.setEmail(cursor.getString(2));
+                user.setPassword(cursor.getString(3));
+                user.setPhoneNumber(cursor.getString(4));
+                user.setDob(cursor.getString(5));
+                user.setRoles(cursor.getString(6));
+                user.setHeight(cursor.getInt(7));
+                user.setWeight(cursor.getInt(8));
+                users.add(user);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return users;
+    }
+
     public User getSingle(int id) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{ID, NAME, EMAIL, PASSWORD, PHONE_NUMBER,
