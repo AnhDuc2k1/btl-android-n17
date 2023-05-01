@@ -79,12 +79,14 @@ public class BookingLabtest extends AppCompatActivity {
 //    }
 
     private void doOpenChildActivity(Labtest labtest) {
-        Intent honeIntent = BookingLabtest.this.getIntent();
-        int userId =  Integer.valueOf(honeIntent.getStringExtra("userId"));
+        Intent homeIntent = BookingLabtest.this.getIntent();
+        int userId =  Integer.valueOf(homeIntent.getStringExtra("userId"));
+        String username = homeIntent.getStringExtra("username");
 
         Intent labtestDetailIntent = new Intent(this, LabtestInfo.class);
 
         labtestDetailIntent.putExtra("userId", String.valueOf(userId));
+        labtestDetailIntent.putExtra("username", username);
         labtestDetailIntent.putExtra("labtestId", String.valueOf(labtest.getId()));
         labtestDetailIntent.putExtra("labtestName", labtest.getName());
         labtestDetailIntent.putExtra("price", String.valueOf(labtest.getPrice()));

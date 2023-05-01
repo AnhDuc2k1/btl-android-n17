@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.database.DepartmentQuery;
 import com.ptit.healthcare.database.DoctorQuery;
 import com.ptit.healthcare.entities.Doctor;
 
@@ -32,12 +33,16 @@ public class AddDoctor extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
+                DepartmentQuery departmentQuery = new DepartmentQuery(getBaseContext());
+
                 String name = editTextTenBS.getText().toString();
                 String department = editTextPhongBan.getText().toString();
                 String phoneNumber = editTextSDT.getText().toString();
                 int experience = Integer.parseInt(editTextKinhNghiem.getText().toString());
 
-                Doctor newDoctor = new Doctor(name, department, phoneNumber, experience);
+                int departmentId = departmentQuery.getDepartmentByName(department).getId();
+
+                Doctor newDoctor = new Doctor(name, phoneNumber, experience, departmentId);
 
                 doctorQuery.add(newDoctor);
                 Toast.makeText(getBaseContext(),"Thêm bác sĩ thành công",Toast.LENGTH_SHORT).show();

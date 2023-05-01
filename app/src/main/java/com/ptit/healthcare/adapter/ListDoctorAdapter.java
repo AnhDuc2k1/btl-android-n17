@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.database.DepartmentQuery;
+import com.ptit.healthcare.entities.Department;
 import com.ptit.healthcare.entities.Doctor;
 
 import java.util.List;
@@ -36,8 +38,11 @@ public class ListDoctorAdapter extends ArrayAdapter<Doctor> {
         TextView chuyenKhoa = convertView.findViewById(R.id.textViewChuyenKhoa);
         TextView kinhNghiem = convertView.findViewById(R.id.textViewKinhNghiem);
 
-        tenBS.setText("Bác sĩ" + doctor.getName());
-        chuyenKhoa.setText("Chuyên khoa " + doctor.getDepartment());
+        DepartmentQuery departmentQuery = new DepartmentQuery(convertView.getContext());
+        Department department = departmentQuery.getSingle(doctor.getDepartmentId());
+
+        tenBS.setText("Bác sĩ " + doctor.getName());
+        chuyenKhoa.setText("Chuyên " + department.getName());
         kinhNghiem.setText("Kinh nghiệm: " + doctor.getExperience() + " năm");
 
         return convertView;

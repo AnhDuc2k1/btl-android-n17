@@ -35,7 +35,7 @@ public class ListLabtestAdapter extends ArrayAdapter<Labtest> {
         TextView price = convertView.findViewById(R.id.price);
 
         labtestName.setText(labtest.getName());
-        price.setText("Giá: " + FormatCurrency.formatCurrencyVN(labtest.getPrice()) + "VNĐ");
+        price.setText("Giá: " + FormatCurrency.formatCurrencyVN(labtest.getPrice()));
 
         return convertView;
     }

@@ -12,10 +12,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.database.ExaminationScheduleQuery;
 import com.ptit.healthcare.entities.Item;
-import com.ptit.healthcare.entities.Order;
+import com.ptit.healthcare.entities.ExaminationSchedule;
+import com.ptit.healthcare.user.Home;
+import com.ptit.healthcare.utils.CurrentDateTime;
 import com.ptit.healthcare.utils.DatePickerFragment;
 import com.ptit.healthcare.utils.TimePickerFragment;
 
@@ -35,6 +39,9 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
         btnDatLich = findViewById(R.id.userBtnDatLich);
         btnChonNgay = findViewById(R.id.userBtnChonNgay);
         btnChonGio = findViewById(R.id.userBtnChonGio);
+
+        tvGioKham.setText(CurrentDateTime.getCurrentTime());
+        tvNgayKham.setText(CurrentDateTime.getCurrentDate());
 
         btnChonNgay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,14 +63,24 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
             @Override
             public void onClick(View v) {
                 Intent intent = Booking.this.getIntent();
+                ExaminationSchedule schedule = (ExaminationSchedule)intent.getSerializableExtra("schedule");
 
-                Order order = (Order)intent.getSerializableExtra("order");
-                Item item = (Item)intent.getSerializableExtra("item");
+                ExaminationScheduleQuery query = new ExaminationScheduleQuery(getBaseContext());
 
-                String startDate = tvGioKham.getText() +" - "+ tvNgayKham.getText();
-                item.setStartDate(startDate);
+                String time = tvGioKham.getText().toString();
+                String date = tvNgayKham.getText().toString();
 
+                schedule.setExaminationTime(time);
+                schedule.setExaminationDate(date);
 
+                query.add(schedule);
+
+                Toast.makeText(getBaseContext(),"Đặt lịch khám thành công",Toast.LENGTH_SHORT).show();
+
+                Intent homeIntent = new Intent(getApplicationContext(), Home.class);
+                homeIntent.putExtra("idUser", intent.getStringExtra("userId"));
+                homeIntent.putExtra("username", intent.getStringExtra("username"));
+                startActivity(homeIntent);
             }
         });
 
@@ -78,12 +95,15 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        if (hourOfDay > 12){
-            hourOfDay -= 12;
-            tvGioKham.setText(hourOfDay + ":" + minute + " PM");
+        String m = String.valueOf(minute);
+        if (minute < 10) {
+            m = "0" + m;
         }
-        else {
-            tvGioKham.setText(hourOfDay + ":" + minute + " AM");
+        if (hourOfDay < 10) {
+            tvGioKham.setText("0" + hourOfDay + ":" + minute);
+        }
+        else{
+            tvGioKham.setText(hourOfDay + ":" + minute);
         }
     }
 }

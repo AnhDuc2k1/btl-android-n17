@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.entities.Item;
-import com.ptit.healthcare.entities.Order;
-import com.ptit.healthcare.utils.CurrentDateTime;
+import com.ptit.healthcare.entities.ExaminationSchedule;
 
 public class DoctorInfo extends AppCompatActivity {
 
@@ -27,8 +26,8 @@ public class DoctorInfo extends AppCompatActivity {
         tvChuyenKhoa = findViewById(R.id.userTVChuyenKhoa);
         tvSDT = findViewById(R.id.userTVSDT);
         tvKinhNghiem = findViewById(R.id.userTVKinhNghiem);
-        btnChonBS = findViewById(R.id.userBtnQLDSBS);
-        btnQuayLai = findViewById(R.id.userBtnChonBSi);
+        btnChonBS = findViewById(R.id.userBtnChonBSi);
+        btnQuayLai = findViewById(R.id.userBtnQLDSBS);
 
         Intent intent = DoctorInfo.this.getIntent();
 
@@ -48,15 +47,14 @@ public class DoctorInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Order order = (Order)intent.getSerializableExtra("order");
-                Item item = (Item)intent.getSerializableExtra("item");
+                ExaminationSchedule schedule = (ExaminationSchedule)intent.getSerializableExtra("schedule");
 
-                item.setDoctorId(Integer.valueOf(intent.getStringExtra("doctorId")));
+                schedule.setDoctorId(Integer.valueOf(intent.getStringExtra("doctorId")));
 
                 Intent bookingIntent = new Intent(v.getContext(), Booking.class);
-                bookingIntent.putExtra("order", order);
-                bookingIntent.putExtra("item", item);
-
+                bookingIntent.putExtra("schedule", schedule);
+                bookingIntent.putExtra("userId", intent.getStringExtra("userId"));
+                bookingIntent.putExtra("username", intent.getStringExtra("username"));
                 startActivity(bookingIntent);
             }
         });

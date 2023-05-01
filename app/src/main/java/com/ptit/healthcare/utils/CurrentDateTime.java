@@ -9,4 +9,10 @@ public class CurrentDateTime {
         Date date = new Date();
         return formatter.format(date);
     }
+
+    public static String getCurrentTime(){
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm");
+        Date date = new Date();
+        return formatter.format(date);
+    }
 }

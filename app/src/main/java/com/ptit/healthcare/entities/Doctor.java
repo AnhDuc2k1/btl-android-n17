@@ -8,24 +8,24 @@ public class Doctor implements Serializable {
 
     private int id;
     private String name;
-    private String department;
     private String phoneNumber;
     private int experience;
+    private int departmentId;
 
     public Doctor() {
     }
 
-    public Doctor(String name, String department, String phoneNumber, int experience) {
+    public Doctor(String name, String phoneNumber, int experience, int departmentId) {
         this.name = name;
-        this.department = department;
+        this.departmentId = departmentId;
         this.phoneNumber = phoneNumber;
         this.experience = experience;
     }
 
-    public Doctor(int id, String name, String department, String phoneNumber, int experience) {
+    public Doctor(int id, String name, String phoneNumber, int experience, int departmentId) {
         this.id = id;
         this.name = name;
-        this.department = department;
+        this.departmentId = departmentId;
         this.phoneNumber = phoneNumber;
         this.experience = experience;
     }
@@ -46,12 +46,12 @@ public class Doctor implements Serializable {
         this.name = name;
     }
 
-    public String getDepartment() {
-        return department;
+    public int getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
     }
 
     public String getPhoneNumber() {
@@ -73,6 +73,6 @@ public class Doctor implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return "Name:" +getName();
+        return "Name: " +getName();
     }
 }

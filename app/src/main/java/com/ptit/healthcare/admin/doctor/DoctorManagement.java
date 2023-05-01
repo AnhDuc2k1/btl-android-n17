@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.adapter.ListDoctorAdapter;
+import com.ptit.healthcare.database.DepartmentQuery;
 import com.ptit.healthcare.database.DoctorQuery;
+import com.ptit.healthcare.entities.Department;
 import com.ptit.healthcare.entities.Doctor;
 
 import java.util.List;
@@ -104,11 +106,15 @@ public class DoctorManagement extends AppCompatActivity {
     }
 
     public void doOpenChildActivity(Doctor doctor) {
+
+        DepartmentQuery departmentQuery = new DepartmentQuery(getBaseContext());
+        Department department = departmentQuery.getSingle(doctor.getDepartmentId());
+
         Intent intentDoctorDetail = new Intent(this, DoctorDetail.class);
 
         intentDoctorDetail.putExtra("idBS", Integer.toString(doctor.getId()));
         intentDoctorDetail.putExtra("tenBS", doctor.getName());
-        intentDoctorDetail.putExtra("chuyenKhoa", doctor.getDepartment());
+        intentDoctorDetail.putExtra("chuyenKhoa", department.getName());
         intentDoctorDetail.putExtra("SDT", doctor.getPhoneNumber());
         intentDoctorDetail.putExtra("kinhNghiem", Integer.toString(doctor.getExperience()));
         startActivityForResult(intentDoctorDetail, 2);

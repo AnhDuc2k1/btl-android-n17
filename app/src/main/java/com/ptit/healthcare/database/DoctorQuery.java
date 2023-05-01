@@ -18,7 +18,7 @@ public class DoctorQuery {
     private static final String TABLE_NAME = "doctor";
     private static final String ID = "id";
     private static final String NAME = "doctor_name";
-    private static final String DEPARTMENT = "department";
+    private static final String DEPARTMENT_ID = "departmentID";
     private static final String PHONE_NUMBER = "phoneNumber";
     private static final String EXPERIENCE = "experience";
 
@@ -38,9 +38,9 @@ public class DoctorQuery {
                 Doctor doctor = new Doctor();
                 doctor.setId(cursor.getInt(0));
                 doctor.setName(cursor.getString(1));
-                doctor.setDepartment(cursor.getString(2));
-                doctor.setPhoneNumber(cursor.getString(3));
-                doctor.setExperience(cursor.getInt(4));
+                doctor.setPhoneNumber(cursor.getString(2));
+                doctor.setExperience(cursor.getInt(3));
+                doctor.setDepartmentId(cursor.getInt(4));
 
                 doctors.add(doctor);
             } while (cursor.moveToNext());
@@ -65,9 +65,9 @@ public class DoctorQuery {
                 Doctor doctor = new Doctor();
                 doctor.setId(cursor.getInt(0));
                 doctor.setName(cursor.getString(1));
-                doctor.setDepartment(cursor.getString(2));
-                doctor.setPhoneNumber(cursor.getString(3));
-                doctor.setExperience(cursor.getInt(4));
+                doctor.setPhoneNumber(cursor.getString(2));
+                doctor.setExperience(cursor.getInt(3));
+                doctor.setDepartmentId(cursor.getInt(4));
 
                 listBS.add(doctor);
             } while (cursor.moveToNext());
@@ -80,8 +80,8 @@ public class DoctorQuery {
 
     public Doctor getSingle(int id) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{ID, NAME, DEPARTMENT, PHONE_NUMBER,
-                        EXPERIENCE}, ID + "=?",
+        Cursor cursor = db.query(TABLE_NAME, new String[]{ID, NAME,PHONE_NUMBER,
+                        EXPERIENCE, DEPARTMENT_ID}, ID + "=?",
                 new String[]{String.valueOf(id)},null, null, null, null);
 
         if (cursor != null) {
@@ -89,7 +89,7 @@ public class DoctorQuery {
         }
 
         Doctor doctor = new Doctor(cursor.getInt(0), cursor.getString(1),
-                cursor.getString(2), cursor.getString(3), cursor.getInt(4));
+             cursor.getString(2), cursor.getInt(3), cursor.getInt(4));
 
         cursor.close();
         db.close();
@@ -102,7 +102,7 @@ public class DoctorQuery {
         ContentValues values = new ContentValues();
 
         values.put(NAME, doctor.getName());
-        values.put(DEPARTMENT, doctor.getDepartment());
+        values.put(DEPARTMENT_ID, doctor.getDepartmentId());
         values.put(PHONE_NUMBER, doctor.getPhoneNumber());
         values.put(EXPERIENCE, doctor.getExperience());
 
@@ -115,7 +115,7 @@ public class DoctorQuery {
         ContentValues values = new ContentValues();
 
         values.put(NAME, doctor.getName());
-        values.put(DEPARTMENT, doctor.getDepartment());
+        values.put(DEPARTMENT_ID, doctor.getDepartmentId());
         values.put(PHONE_NUMBER, doctor.getPhoneNumber());
         values.put(EXPERIENCE, doctor.getExperience());
 

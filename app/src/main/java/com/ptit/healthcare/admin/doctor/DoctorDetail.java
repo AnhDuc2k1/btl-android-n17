@@ -11,7 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.database.DepartmentQuery;
 import com.ptit.healthcare.database.DoctorQuery;
+import com.ptit.healthcare.entities.Department;
 import com.ptit.healthcare.entities.Doctor;
 
 public class DoctorDetail extends AppCompatActivity {
@@ -70,11 +72,13 @@ public class DoctorDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                DepartmentQuery departmentQuery = new DepartmentQuery(getBaseContext());
+
                 Doctor doctor = new Doctor();
                 DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
                 doctor.setId(Integer.parseInt(editTextIDBS.getText().toString()));
                 doctor.setName(editTextTenBS.getText().toString());
-                doctor.setDepartment(editTextChuyenKhoa.getText().toString());
+                doctor.setDepartmentId(departmentQuery.getDepartmentByName(editTextChuyenKhoa.getText().toString()).getId());
                 doctor.setPhoneNumber(editTextSDT.getText().toString());
                 doctor.setExperience(Integer.parseInt(editTextKinhNghiem.getText().toString()));
 

@@ -12,11 +12,12 @@ import android.widget.ListView;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.adapter.ListDoctorAdapter;
-import com.ptit.healthcare.admin.doctor.DoctorManagement;
+import com.ptit.healthcare.database.DepartmentQuery;
 import com.ptit.healthcare.database.DoctorQuery;
+import com.ptit.healthcare.entities.Department;
 import com.ptit.healthcare.entities.Doctor;
 import com.ptit.healthcare.entities.Item;
-import com.ptit.healthcare.entities.Order;
+import com.ptit.healthcare.entities.ExaminationSchedule;
 
 import java.util.List;
 
@@ -78,17 +79,19 @@ public class BookingDoctor extends AppCompatActivity {
     private void doOpenChildActivity(Doctor doctor) {
         Intent intent= BookingDoctor.this.getIntent();
 
-        Order order = (Order)intent.getSerializableExtra("order");
-        Item item = (Item)intent.getSerializableExtra("item");
+        ExaminationSchedule schedule = (ExaminationSchedule)intent.getSerializableExtra("schedule");
+
+        DepartmentQuery departmentQuery = new DepartmentQuery(getBaseContext());
+        Department department = departmentQuery.getSingle(doctor.getDepartmentId());
 
         Intent doctorInfoIntent = new Intent(this, DoctorInfo.class);
 
-        doctorInfoIntent.putExtra("order", order);
-        doctorInfoIntent.putExtra("item", item);
-
+        doctorInfoIntent.putExtra("schedule", schedule);
+        doctorInfoIntent.putExtra("userId", intent.getStringExtra("userId"));
+        doctorInfoIntent.putExtra("username", intent.getStringExtra("username"));
         doctorInfoIntent.putExtra("doctorId", String.valueOf(doctor.getId()));
         doctorInfoIntent.putExtra("doctorName", doctor.getName());
-        doctorInfoIntent.putExtra("department", doctor.getDepartment());
+        doctorInfoIntent.putExtra("department", department.getName());
         doctorInfoIntent.putExtra("phoneNumber", doctor.getPhoneNumber());
         doctorInfoIntent.putExtra("experience", Integer.toString(doctor.getExperience()));
 
