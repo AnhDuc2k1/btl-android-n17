@@ -6,91 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".admin.user.UserManagement">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="335dp"
-        android:layout_height="30dp"
-        android:text="Quản Lý Người Dùng"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
-
-    <View
-        android:layout_width="325dp"
-        android:layout_height="3dp"
-        android:background="#2D799B"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.558"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
-
-    <ListView
-        android:id="@+id/listUser"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/textView6"
-        android:layout_width="240dp"
-        android:layout_height="35dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Nhập tên người dùng"
-        android:textColorHighlight="@color/black"
-        android:textColorLink="@color/black"
-        android:textSize="14sp"
-        android:background="@drawable/custom_edit_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18"
-        />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="335dp"
+            android:layout_height="40dp"
+            android:text="Quản Lý Người Dùng"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
 
-    <Button
-        android:id="@+id/search"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/search"
-        android:text=""
-        app:backgroundTint="#19A7CE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.845"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179" />
+        <View
+            android:layout_width="325dp"
+            android:layout_height="3dp"
+            android:background="#2D799B"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/addNewUser"
-        android:layout_width="238dp"
-        android:layout_height="89dp"
-        android:backgroundTint="#FFFFFF"
-        android:padding="5dp"
-        android:text="Thêm mới Người Dùng"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.898"
-        app:strokeColor="#2D799B"
-        app:strokeWidth="3dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+            <EditText
+                android:id="@+id/inputUserName"
+                android:layout_width="240dp"
+                android:layout_height="35dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Nhập tên người dùng"
+                android:textColorHighlight="@color/black"
+                android:textColorLink="@color/black"
+                android:textSize="14sp"
+                android:background="@drawable/custom_edit_text"
+                android:layout_marginLeft="40dp"
+                />
 
+            <Button
+                android:id="@+id/searchUser"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/search"
+                android:text=""
+                app:backgroundTint="#19A7CE"
+                android:layout_marginLeft="30dp"/>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listUser"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
+
+        <Button
+            android:id="@+id/addNewUser"
+            android:layout_width="170dp"
+            android:layout_height="58dp"
+            android:backgroundTint="#FFFFFF"
+            android:padding="5dp"
+            android:text="Thêm Người Dùng"
+            android:textColor="#000000"
+            app:strokeColor="#2D799B"
+            app:strokeWidth="3dp"  android:layout_marginTop="20dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

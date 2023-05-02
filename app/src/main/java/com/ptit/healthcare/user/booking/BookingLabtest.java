@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -42,7 +44,24 @@ public class BookingLabtest extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = edTKGoiKham.getText().toString();
-//                loadListBSFindByName(name);
+                loadListLabtestByName(name);
+            }
+        });
+
+        edTKGoiKham.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                loadListLabtest();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
     }
@@ -62,21 +81,20 @@ public class BookingLabtest extends AppCompatActivity {
         });
     }
 
-//    public void loadListLabtestFindByName(String name) {
-//        LabtestQuery labtestQuery = new DoctorQuery(getBaseContext());
-//        final List<Doctor> listBS = labtestQuery.(name);
-//
-//        ListDoctorAdapter adapter = new ListDoctorAdapter(DoctorManagement.this, listBS);
-//        ds.setAdapter(adapter);
-//
-//        listViewBS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Doctor doctor = listBS.get(i);
-//                doOpenChildActivity(doctor);
-//            }
-//        });
-//    }
+    protected void loadListLabtestByName(String name) {
+        LabtestQuery db = new LabtestQuery(getBaseContext());
+        List<Labtest> labtestList = db.getAllLabtestByName(name);
+
+        ListLabtestAdapter labtestAdapter = new ListLabtestAdapter(this, labtestList);
+        listGoiKham.setAdapter(labtestAdapter);
+
+        listGoiKham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                doOpenChildActivity(labtestList.get(position));
+            }
+        });
+    }
 
     private void doOpenChildActivity(Labtest labtest) {
         Intent homeIntent = BookingLabtest.this.getIntent();

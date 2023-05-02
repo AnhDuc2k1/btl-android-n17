@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
@@ -16,10 +20,14 @@ import com.ptit.healthcare.database.DoctorQuery;
 import com.ptit.healthcare.entities.Department;
 import com.ptit.healthcare.entities.Doctor;
 
-public class DoctorDetail extends AppCompatActivity {
+public class DoctorDetail extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button btnCapNhat, btnHuy;
     CheckBox cbCapNhat;
+    Spinner spinnerChuyenKhoa;
+    String chuyenKhoa1;
+
+    private boolean state = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +38,25 @@ public class DoctorDetail extends AppCompatActivity {
 
         final EditText editTextIDBS =(EditText)findViewById(R.id.edID);
         final EditText editTextTenBS =(EditText)findViewById(R.id.edUsername3);
-        final EditText editTextChuyenKhoa = (EditText)findViewById(R.id.edChuyenKhoa);
+        spinnerChuyenKhoa = (Spinner) findViewById(R.id.spinnerChuyenKhoa);
         final EditText editTextSDT =(EditText)findViewById(R.id.edPhoneNum3);
         final EditText editTextKinhNghiem =(EditText)findViewById(R.id.edKinhNghiem);
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.department, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerChuyenKhoa.setAdapter(adapter);
+        spinnerChuyenKhoa.setOnItemSelectedListener(this);
+
         editTextIDBS.setText(intent.getStringExtra("idBS"));
         editTextTenBS.setText(intent.getStringExtra("tenBS"));
-        editTextChuyenKhoa.setText(intent.getStringExtra("chuyenKhoa"));
+        spinnerChuyenKhoa.setSelection(adapter.getPosition(intent.getStringExtra("chuyenKhoa")));
         editTextSDT.setText(intent.getStringExtra("SDT"));
         editTextKinhNghiem.setText(intent.getStringExtra("kinhNghiem"));
 
         editTextIDBS.setEnabled(false);
         editTextTenBS.setEnabled(false);
-        editTextChuyenKhoa.setEnabled(false);
+        spinnerChuyenKhoa.setEnabled(false);
         editTextSDT.setEnabled(false);
         editTextKinhNghiem.setEnabled(false);
 
@@ -53,11 +67,22 @@ public class DoctorDetail extends AppCompatActivity {
         cbCapNhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editTextIDBS.setEnabled(false);
-                editTextTenBS.setEnabled(true);
-                editTextChuyenKhoa.setEnabled(true);
-                editTextSDT.setEnabled(true);
-                editTextKinhNghiem.setEnabled(true);
+                if(!state) {
+                    editTextIDBS.setEnabled(false);
+                    editTextTenBS.setEnabled(true);
+                    spinnerChuyenKhoa.setEnabled(true);
+                    editTextSDT.setEnabled(true);
+                    editTextKinhNghiem.setEnabled(true);
+                    state = true;
+                }
+                else {
+                    editTextIDBS.setEnabled(false);
+                    editTextTenBS.setEnabled(false);
+                    spinnerChuyenKhoa.setEnabled(false);
+                    editTextSDT.setEnabled(false);
+                    editTextKinhNghiem.setEnabled(false);
+                    state = false;
+                }
             }
         });
 
@@ -78,7 +103,7 @@ public class DoctorDetail extends AppCompatActivity {
                 DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
                 doctor.setId(Integer.parseInt(editTextIDBS.getText().toString()));
                 doctor.setName(editTextTenBS.getText().toString());
-                doctor.setDepartmentId(departmentQuery.getDepartmentByName(editTextChuyenKhoa.getText().toString()).getId());
+                doctor.setDepartmentId(departmentQuery.getDepartmentByName(chuyenKhoa1).getId());
                 doctor.setPhoneNumber(editTextSDT.getText().toString());
                 doctor.setExperience(Integer.parseInt(editTextKinhNghiem.getText().toString()));
 
@@ -95,5 +120,17 @@ public class DoctorDetail extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        chuyenKhoa1 = text;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

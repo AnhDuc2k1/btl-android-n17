@@ -40,6 +40,7 @@
         android:layout_marginTop="80dp"
         android:text="Thứ 5, ngày 6 tháng 6 năm 2023"
         android:textSize="14dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

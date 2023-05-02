@@ -10,21 +10,25 @@ public class Labtest {
 
     private String description;
 
+    private int departmentId;
+
     public Labtest() {
 
     }
 
-    public Labtest(String name, int price, String description) {
+    public Labtest(String name, int price, String description, int departmentId) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.departmentId = departmentId;
     }
 
-    public Labtest(int id, String name, int price, String description) {
+    public Labtest(int id, String name, int price, String description, int departmentId) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
+        this.departmentId = departmentId;
     }
 
     public int getId() {
@@ -57,6 +61,14 @@ public class Labtest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
     }
 
     @Override

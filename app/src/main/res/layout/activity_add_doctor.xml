@@ -83,13 +83,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.402" />
 
-    <EditText
+    <Spinner
         android:id="@+id/editTextChuyenKhoa"
-        android:layout_width="250dp"
+        android:layout_width="262dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Chuyên khoa"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingLeft="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -121,7 +119,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Số năm kinh nghiệm"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
         android:paddingLeft="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
