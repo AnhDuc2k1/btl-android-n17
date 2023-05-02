@@ -18,6 +18,7 @@ import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
 import com.ptit.healthcare.user.authentication.Login;
+import com.ptit.healthcare.user.authentication.Register;
 import com.ptit.healthcare.user.booking.BookingLabtest;
 
 public class Home extends AppCompatActivity {
@@ -96,6 +97,14 @@ public class Home extends AppCompatActivity {
 
                 textViewTime.setText(currentTime);
                 handler.postDelayed(this, 1000);
+            }
+        });
+
+        aboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AboutUs.class);
+                startActivity(intent);
             }
         });
     }

@@ -148,9 +148,9 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
-        android:text="Lịch hẹn"
+        android:text="Lịch sử khám"
         android:textColor="@color/black"
         android:textSize="13dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +160,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
+        android:layout_marginStart="85dp"
         android:layout_marginTop="16dp"
         android:text="Tin tức"
         android:textColor="@color/black"
@@ -172,7 +172,7 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="86dp"
         android:layout_marginTop="16dp"
         android:text="Giới thiệu"
         android:textColor="@color/black"
@@ -210,18 +210,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.046"
         app:srcCompat="@drawable/logout" />
-
-    <TextView
-        android:id="@+id/logoutText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng xuất"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

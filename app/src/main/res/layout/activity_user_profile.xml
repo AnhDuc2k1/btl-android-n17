@@ -16,7 +16,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
 
         <TableLayout
@@ -26,24 +27,7 @@
             android:layout_margin="15dp"
             >
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/light_blue"
-                android:gravity="center"
-                android:padding="10dp">
 
-                <TextView
-                    android:id="@+id/textViewThongTinChiTietBS"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Thông tin Bác Sĩ"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    android:textStyle="bold" />
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -51,15 +35,16 @@
                 android:background="@android:drawable/editbox_dropdown_light_frame"
                 android:outlineAmbientShadowColor="@color/light_blue"
                 android:gravity="center"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:layout_marginTop="90dp">
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="80dp"
+                    android:layout_width="40dp"
                     android:layout_height="80dp"
 
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:src="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +60,8 @@
                     android:background="@color/white"
                     android:text="Họ và tên:"
                     android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/black"
                     android:textStyle="bold"></TextView>
 
                 <EditText
@@ -89,6 +76,8 @@
                 <TextView
                     android:text="Email:"
                     android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
                 <EditText
@@ -103,6 +92,8 @@
                     android:layout_height="wrap_content"
                     android:text="Số điện thoại:"
                     android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
                 <EditText
@@ -117,6 +108,8 @@
                 <TextView
                     android:text="Mật khẩu:"
                     android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/black"
                     android:textStyle="bold"></TextView>
 
                 <EditText
@@ -129,7 +122,9 @@
 
                 <TextView
                     android:text="Ngày sinh:"
+                    android:layout_marginLeft="20dp"
                     android:textSize="14sp"
+                    android:textColor="@color/black"
                     android:textStyle="bold"></TextView>
 
                 <EditText
@@ -143,6 +138,8 @@
                 <TextView
                     android:text="Chiều cao:"
                     android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/black"
                     android:textStyle="bold"></TextView>
 
                 <EditText
@@ -155,6 +152,8 @@
                 <TextView
                     android:text="Cân nặng:"
                     android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
                 <EditText
