@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import com.ptit.healthcare.entities.User;
 import com.ptit.healthcare.user.authentication.Login;
 
 public class UserProfile extends AppCompatActivity {
-    Button btnCapNhat, btnLogout;
+    Button btnCapNhat, btnCancel;
     CheckBox cbCapNhat;
 
     @Override
@@ -53,27 +54,27 @@ public class UserProfile extends AppCompatActivity {
         editTextHeight.setEnabled(false);
         editTextWeight.setEnabled(false);
 
-        btnLogout=(Button) findViewById(R.id.btnLogout);
+        btnCancel=(Button) findViewById(R.id.btnCancel);
         btnCapNhat= (Button) findViewById(R.id.btnCapNhat);
         cbCapNhat= (CheckBox) findViewById(R.id.checkboxCapNhat);
 
-        cbCapNhat.setOnClickListener(new View.OnClickListener() {
+        cbCapNhat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                editTextUsername.setEnabled(true);
-                editTextEmail.setEnabled(true);
-                editTextPhoneNum.setEnabled(true);
-                editTextPass.setEnabled(true);
-                editTextDob.setEnabled(true);
-                editTextHeight.setEnabled(true);
-                editTextWeight.setEnabled(true);
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                editTextUsername.setEnabled(isChecked);
+                editTextEmail.setEnabled(isChecked);
+                editTextPhoneNum.setEnabled(isChecked);
+                editTextPass.setEnabled(isChecked);
+                editTextDob.setEnabled(isChecked);
+                editTextHeight.setEnabled(isChecked);
+                editTextWeight.setEnabled(isChecked);
             }
         });
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
             }
         });
