@@ -20,6 +20,7 @@ public class UserProfile extends AppCompatActivity {
     Button btnCapNhat, btnCancel;
     CheckBox cbCapNhat;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +37,10 @@ public class UserProfile extends AppCompatActivity {
         final EditText editTextHeight =(EditText)findViewById(R.id.edHeight);
         final EditText editTextWeight =(EditText)findViewById(R.id.edWeight);
 
+        String username = intent.getStringExtra("username");
+
         int id = Integer.parseInt(intent.getStringExtra("id").toString());
-        editTextUsername.setText(intent.getStringExtra("username"));
+        editTextUsername.setText(username);
         editTextEmail.setText(intent.getStringExtra("email"));
         editTextPhoneNum.setText(intent.getStringExtra("phoneNumber"));
         editTextPass.setText(intent.getStringExtra("password"));
@@ -75,6 +78,9 @@ public class UserProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Home.class);
+                intent.putExtra("idUser", String.valueOf(id));
+                intent.putExtra("username", username);
+
                 startActivity(intent);
             }
         });
