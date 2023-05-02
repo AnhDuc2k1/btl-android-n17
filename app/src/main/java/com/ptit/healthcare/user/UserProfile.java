@@ -7,19 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.database.DoctorQuery;
 import com.ptit.healthcare.database.UserQuery;
+import com.ptit.healthcare.entities.Doctor;
 import com.ptit.healthcare.entities.User;
-import com.ptit.healthcare.user.authentication.Login;
 
 public class UserProfile extends AppCompatActivity {
-    Button btnCapNhat, btnCancel;
+    Button btnCapNhat, btnLogout;
     CheckBox cbCapNhat;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +36,8 @@ public class UserProfile extends AppCompatActivity {
         final EditText editTextHeight =(EditText)findViewById(R.id.edHeight);
         final EditText editTextWeight =(EditText)findViewById(R.id.edWeight);
 
-        String username = intent.getStringExtra("username");
-
         int id = Integer.parseInt(intent.getStringExtra("id").toString());
-        editTextUsername.setText(username);
+        editTextUsername.setText(intent.getStringExtra("username"));
         editTextEmail.setText(intent.getStringExtra("email"));
         editTextPhoneNum.setText(intent.getStringExtra("phoneNumber"));
         editTextPass.setText(intent.getStringExtra("password"));
@@ -57,30 +54,27 @@ public class UserProfile extends AppCompatActivity {
         editTextHeight.setEnabled(false);
         editTextWeight.setEnabled(false);
 
-        btnCancel=(Button) findViewById(R.id.btnCancel);
+        btnLogout=(Button) findViewById(R.id.btnLogout);
         btnCapNhat= (Button) findViewById(R.id.btnCapNhat);
         cbCapNhat= (CheckBox) findViewById(R.id.checkboxCapNhat);
 
-        cbCapNhat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cbCapNhat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editTextUsername.setEnabled(isChecked);
-                editTextEmail.setEnabled(isChecked);
-                editTextPhoneNum.setEnabled(isChecked);
-                editTextPass.setEnabled(isChecked);
-                editTextDob.setEnabled(isChecked);
-                editTextHeight.setEnabled(isChecked);
-                editTextWeight.setEnabled(isChecked);
+            public void onClick(View v) {
+                editTextUsername.setEnabled(true);
+                editTextEmail.setEnabled(true);
+                editTextPhoneNum.setEnabled(true);
+                editTextPass.setEnabled(true);
+                editTextDob.setEnabled(true);
+                editTextHeight.setEnabled(true);
+                editTextWeight.setEnabled(true);
             }
         });
 
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                intent.putExtra("idUser", String.valueOf(id));
-                intent.putExtra("username", username);
-
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
             }
         });

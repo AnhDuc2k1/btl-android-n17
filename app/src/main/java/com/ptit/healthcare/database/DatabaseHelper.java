@@ -43,38 +43,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name_labtest TEXT, " +
                 "price INTEGER, " +
-                "description TEXT, "+
-                "departmentID INTEGER, " +
-                "FOREIGN KEY(departmentID) REFERENCES department(id))";
+                "description TEXT)";
         db.execSQL(sqlQuery);
 
         sqlQuery = "CREATE TABLE doctor (" +
                 "id INTEGER PRIMARY KEY, " +
                 "doctor_name TEXT, " +
+                "department TEXT, " +
                 "phoneNumber TEXT, " +
-                "experience INTEGER, "+
-                "departmentID INTEGER, " +
-                "FOREIGN KEY(departmentID) REFERENCES department(id))";
+                "experience INTEGER)";
         db.execSQL(sqlQuery);
 
-        sqlQuery = "CREATE TABLE department (" +
-                "id INTEGER PRIMARY KEY, " +
-                "name TEXT)";
+        sqlQuery = "CREATE TABLE doctor_labtest (" +
+                "doctorID INTEGER, " +
+                "labtestID INTEGER, " +
+                "FOREIGN KEY(doctorID) REFERENCES doctor(id), " +
+                "FOREIGN KEY(labtestID) REFERENCES labtest(id), " +
+                "PRIMARY KEY(doctorID, labtestID))";
         db.execSQL(sqlQuery);
 
-        sqlQuery = "CREATE TABLE examination_schedule (" +
+        sqlQuery = "CREATE TABLE orders (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "examinationTime TEXT, " +
-                "examinationDate TEXT, " +
-                "status TEXT, " +
+                "startDate TEXT, " +
                 "userID INTEGER, " +
+                "FOREIGN KEY(userID) REFERENCES users(id))";
+        db.execSQL(sqlQuery);
+
+        sqlQuery = "create TABLE item (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "startDate TEXT, " +
+                "orderID INTEGER, " +
                 "labtestID INTEGER, " +
                 "doctorID INTEGER, " +
-                "FOREIGN KEY(userID) REFERENCES users(id)," +
+                "FOREIGN KEY(orderID) REFERENCES orders(id), " +
                 "FOREIGN KEY(labtestID) REFERENCES labtest(id), " +
                 "FOREIGN KEY(doctorID) REFERENCES doctor(id))";
         db.execSQL(sqlQuery);
-
     }
 
     @Override

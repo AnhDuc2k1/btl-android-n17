@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.authentication.Login">
+    tools:context=".user.Login">
 
     <TextView
         android:id="@+id/textView17"
@@ -63,7 +63,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="textPersonName"
         android:hint="Số điện thoại"
         android:textColor="@color/black"
         android:textSize="16dp"

@@ -74,7 +74,6 @@
         android:text="Xin chào, Admin"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.121"
@@ -83,7 +82,7 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <TextView
-        android:id="@+id/dateTimeAdmin"
+        android:id="@+id/textView2"
         android:layout_width="184dp"
         android:layout_height="19dp"
         android:text="Monday, 1 May 2023"
@@ -134,7 +133,6 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"

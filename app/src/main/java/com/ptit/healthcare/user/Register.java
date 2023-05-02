@@ -1,4 +1,4 @@
-package com.ptit.healthcare.user.authentication;
+package com.ptit.healthcare.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 

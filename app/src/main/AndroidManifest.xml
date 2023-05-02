@@ -11,19 +11,7 @@
         android:theme="@style/Theme.HealthCare"
         tools:targetApi="31">
         <activity
-            android:name=".user.booking.Booking"
-            android:exported="false"/>
-        <activity
-            android:name=".user.booking.DoctorInfo"
-            android:exported="false" />
-        <activity
-            android:name=".user.booking.BookingDoctor"
-            android:exported="false" />
-        <activity
-            android:name=".user.booking.LabtestInfo"
-            android:exported="false" />
-        <activity
-            android:name=".user.booking.BookingLabtest"
+            android:name=".admin.labtest.ArticleManagement"
             android:exported="false" />
         <activity
             android:name=".user.AboutUs"
@@ -31,8 +19,10 @@
         <activity
             android:name=".user.UserProfile"
             android:exported="false" />
+        <activity android:name=".user.ViewDetail" />
+        <activity android:name=".user.ArticleView" />
         <activity
-            android:name=".user.authentication.Login"
+            android:name=".user.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +34,7 @@
             android:name=".user.Home"
             android:exported="false" />
         <activity
-            android:name=".user.authentication.Register"
+            android:name=".user.Register"
             android:exported="false" />
         <activity
             android:name=".admin.doctor.AddDoctor"
@@ -75,7 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".admin.AdminManagement"
-            android:exported="false" />
+            android:exported="false"></activity>
     </application>
 
 </manifest>

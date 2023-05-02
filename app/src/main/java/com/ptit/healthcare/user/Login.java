@@ -1,4 +1,4 @@
-package com.ptit.healthcare.user.authentication;
+package com.ptit.healthcare.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,9 @@ import android.widget.Toast;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.admin.AdminManagement;
+import com.ptit.healthcare.database.DatabaseHelper;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
-import com.ptit.healthcare.user.Home;
 
 public class Login extends AppCompatActivity {
     EditText phonenumber, password;

@@ -190,10 +190,10 @@
                 app:strokeWidth="3dp"></Button>
 
             <Button
-                android:id="@+id/btnCancel"
+                android:id="@+id/btnLogout"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
-                android:text="HỦY"
+                android:text="Đăng xuất"
                 android:textColor="#100F0F"
                 app:backgroundTint="@color/white"
                 app:strokeColor="#2D799B"

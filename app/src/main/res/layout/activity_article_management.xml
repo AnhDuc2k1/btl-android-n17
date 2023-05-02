@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/quanLyBacSi"
+            android:layout_width="219dp"
+            android:layout_height="52dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="sans-serif"
+            android:text="Quản lý Bản Tin"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/danhSachBacSi"
+            android:layout_marginTop="28dp"
+            android:layout_width="318dp"
+            android:layout_height="376dp"
+            android:layout_gravity="center"
+            tools:listitem="@layout/list_view_article" />
+        <Button
+            android:id="@+id/themBaiBao"
+            android:layout_width="152dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="38dp"
+            android:backgroundTint="#FFFFFF"
+
+            android:fontFamily="sans-serif-black"
+            android:padding="15dp"
+            android:text="Thêm Bài Báo"
+            android:textColor="#100F0F"
+            android:textSize="14sp"
+            app:backgroundTint="#5C5F61"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1.5dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
