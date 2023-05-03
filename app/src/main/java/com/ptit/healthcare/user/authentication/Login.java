@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.admin.AdminManagement;
+import com.ptit.healthcare.admin.user.UpdateUserDetail;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
 import com.ptit.healthcare.user.Home;
+import com.ptit.healthcare.utils.ValidateField;
 
 public class Login extends AppCompatActivity {
     EditText phonenumber, password;
@@ -37,8 +39,15 @@ public class Login extends AppCompatActivity {
                 String phone = phonenumber.getText().toString();
                 String pass = password.getText().toString();
 
-                if (phone.equals("") || pass.equals(""))
+                if (phone.equals("") || pass.equals("")) {
                     Toast.makeText(Login.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
+                else if (!ValidateField.validatePhoneNumber(phone)) {
+                    Toast.makeText(Login.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if(!ValidateField.validatePassword(pass)) {
+                    Toast.makeText(Login.this, "Mật khẩu phải có ít nhất 5 ký tự", Toast.LENGTH_SHORT).show();
+                }
                 else {
                     Boolean checkphonepass = userQuery.checkphonenumberpassword(phone, pass);
                     if (checkphonepass == true) {

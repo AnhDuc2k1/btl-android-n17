@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.UserQuery;
+import com.ptit.healthcare.utils.ValidateField;
 
 public class Register extends AppCompatActivity {
     EditText phonenumber, username, password, repassword;
@@ -37,8 +38,12 @@ public class Register extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
 
-                if (user.equals("") || phone.equals("") || pass.equals("") || repass.equals(""))
+                if (user.equals("") || phone.equals("") || pass.equals("") || repass.equals("")) {
                     Toast.makeText(Register.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
+                else if(!ValidateField.validatePhoneNumber(phone)) {
+                    Toast.makeText(Register.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
                 else {
                     if (pass.equals(repass)) {
                         Boolean checkphone = userQuery.checkphonenumber(phone);

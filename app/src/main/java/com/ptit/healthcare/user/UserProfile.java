@@ -12,9 +12,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.admin.user.UserDetail;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
 import com.ptit.healthcare.user.authentication.Login;
+import com.ptit.healthcare.utils.ValidateField;
 
 public class UserProfile extends AppCompatActivity {
     Button btnCapNhat, btnCancel;
@@ -88,28 +90,35 @@ public class UserProfile extends AppCompatActivity {
         btnCapNhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user = new User();
-                UserQuery db = new UserQuery(getBaseContext());
-                user.setId(id);
-                user.setUsername(editTextUsername.getText().toString());
-                user.setEmail(editTextEmail.getText().toString());
-                user.setPassword(editTextPass.getText().toString());
-                user.setPhoneNumber(editTextPhoneNum.getText().toString());
-                user.setDob(editTextDob.getText().toString());
-                user.setWeight(Integer.parseInt(editTextWeight.getText().toString()));
-                user.setHeight(Integer.parseInt(editTextHeight.getText().toString()));
-
-                int result = db.update(user);
-                if (result > 0)
-                {
-                    Toast.makeText(getBaseContext(), "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
+                if(!ValidateField.validateEmail(editTextEmail.getText().toString())) {
+                    Toast.makeText(UserProfile.this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if( !ValidateField.validatePhoneNumber(editTextPhoneNum.getText().toString())) {
+                    Toast.makeText(UserProfile.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if(!ValidateField.validatePassword(editTextPass.getText().toString())) {
+                    Toast.makeText(UserProfile.this, "Mật khẩu phải có ít nhất 5 ký tự", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(getBaseContext(), "Cập nhật thông tin không thành công!", Toast.LENGTH_SHORT).show();
+                    User user = new User();
+                    UserQuery db = new UserQuery(getBaseContext());
+                    user.setId(id);
+                    user.setUsername(editTextUsername.getText().toString());
+                    user.setEmail(editTextEmail.getText().toString());
+                    user.setPassword(editTextPass.getText().toString());
+                    user.setPhoneNumber(editTextPhoneNum.getText().toString());
+                    user.setDob(editTextDob.getText().toString());
+                    user.setWeight(Integer.parseInt(editTextWeight.getText().toString()));
+                    user.setHeight(Integer.parseInt(editTextHeight.getText().toString()));
+                    int result = db.update(user);
+                    if (result > 0) {
+                        Toast.makeText(getBaseContext(), "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getBaseContext(), "Cập nhật thông tin không thành công!", Toast.LENGTH_SHORT).show();
+                    }
+                    setResult(RESULT_OK, null);
+                    finish();
                 }
-
-                setResult(RESULT_OK, null);
-                finish();
             }
         });
     }

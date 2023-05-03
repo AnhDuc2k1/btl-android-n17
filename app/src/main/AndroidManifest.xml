@@ -17,6 +17,12 @@
             android:name=".user.bookinghistory.BookingHistory"
             android:exported="false" />
         <activity
+            android:name=".admin.schedule.ScheduleDetail"
+            android:exported="false" />
+        <activity
+            android:name=".admin.schedule.ScheduleManagement"
+            android:exported="false" />
+        <activity
             android:name=".user.booking.Booking"
             android:exported="false" />
         <activity

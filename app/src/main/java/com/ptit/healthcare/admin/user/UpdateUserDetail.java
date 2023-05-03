@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
+import com.ptit.healthcare.utils.ValidateField;
 
 public class UpdateUserDetail extends AppCompatActivity {
 
@@ -55,28 +56,39 @@ public class UpdateUserDetail extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user = new User();
-                user.setId(id);
-                user.setUsername(editTextUsername.getText().toString());
-                user.setEmail(editTextEmail.getText().toString());
-                user.setPassword(editTextPassword.getText().toString());
-                user.setPhoneNumber(editTextPhoneNumber.getText().toString());
-                user.setDob(editTextDob.getText().toString());
-                user.setRoles("USER");
-                user.setWeight(Integer.parseInt(editTextWeight.getText().toString()));
-                user.setHeight(Integer.parseInt(editTextHeight.getText().toString()));
-
-                UserQuery db = new UserQuery(getBaseContext());
-                int statusCode = db.update(user);
-                if(statusCode > 0) {
-                    Toast.makeText(getBaseContext(), "Cập nhật user thành công", Toast.LENGTH_SHORT).show();
+                if(!ValidateField.validateEmail(editTextEmail.getText().toString())) {
+                    Toast.makeText(UpdateUserDetail.this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if( !ValidateField.validatePhoneNumber(editTextPhoneNumber.getText().toString())) {
+                    Toast.makeText(UpdateUserDetail.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if(!ValidateField.validatePassword(editTextPassword.getText().toString())) {
+                    Toast.makeText(UpdateUserDetail.this, "Mật khẩu phải có ít nhất 5 ký tự", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(getBaseContext(), "Vui lòng thử lại", Toast.LENGTH_SHORT).show();
-                }
+                    User user = new User();
+                    user.setId(id);
+                    user.setUsername(editTextUsername.getText().toString());
+                    user.setEmail(editTextEmail.getText().toString());
+                    user.setPassword(editTextPassword.getText().toString());
+                    user.setPhoneNumber(editTextPhoneNumber.getText().toString());
+                    user.setDob(editTextDob.getText().toString());
+                    user.setRoles("USER");
+                    user.setWeight(Integer.parseInt(editTextWeight.getText().toString()));
+                    user.setHeight(Integer.parseInt(editTextHeight.getText().toString()));
 
-                setResult(RESULT_OK, null);
-                finish();
+
+                    UserQuery db = new UserQuery(getBaseContext());
+                    int statusCode = db.update(user);
+                    if (statusCode > 0) {
+                        Toast.makeText(getBaseContext(), "Cập nhật user thành công", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getBaseContext(), "Vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                    }
+
+                    setResult(RESULT_OK, null);
+                    finish();
+                }
             }
         });
 

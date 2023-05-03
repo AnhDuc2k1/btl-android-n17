@@ -151,7 +151,6 @@ public class DoctorManagement extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if ((resultCode == RESULT_OK) && (requestCode == 1)) {
             Intent intentRefresh = new Intent(this, DoctorManagement.class);
-
             startActivity(intentRefresh);
             this.finish();
         }
