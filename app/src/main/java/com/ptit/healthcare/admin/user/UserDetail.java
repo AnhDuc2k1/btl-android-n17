@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
+import com.ptit.healthcare.utils.ValidateField;
 
 public class UserDetail extends AppCompatActivity {
 
@@ -40,21 +41,32 @@ public class UserDetail extends AppCompatActivity {
         btnAddNewStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserQuery userQuery = new UserQuery(getBaseContext());
-                String username = editTextUsername.getText().toString();
-                String email = editTextEmail.getText().toString();
-                String password = editTextPassword.getText().toString();
-                String phoneNumber = editTextPhoneNumber.getText().toString();
-                String dob = editTextDob.getText().toString();
-                int weight = Integer.parseInt(editTextWeight.getText().toString());
-                int height = Integer.parseInt(editTextHeight.getText().toString());
+                if(!ValidateField.validateEmail(editTextEmail.getText().toString())) {
+                    Toast.makeText(UserDetail.this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if( !ValidateField.validatePhoneNumber(editTextPhoneNumber.getText().toString())) {
+                    Toast.makeText(UserDetail.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if(!ValidateField.validatePassword(editTextPassword.getText().toString())) {
+                    Toast.makeText(UserDetail.this, "Mật khẩu phải có ít nhất 5 ký tự", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    UserQuery userQuery = new UserQuery(getBaseContext());
+                    String username = editTextUsername.getText().toString();
+                    String email = editTextEmail.getText().toString();
+                    String password = editTextPassword.getText().toString();
+                    String phoneNumber = editTextPhoneNumber.getText().toString();
+                    String dob = editTextDob.getText().toString();
+                    int weight = Integer.parseInt(editTextWeight.getText().toString());
+                    int height = Integer.parseInt(editTextHeight.getText().toString());
 
-                User user = new User(username, email, password, phoneNumber, dob,"USER", height, weight);
-                userQuery.add(user);
-                Toast.makeText(getBaseContext(), "Thêm người dùng thành công", Toast.LENGTH_SHORT).show();
-                reset();
-                setResult(RESULT_OK, null);
-                finish();
+                    User user = new User(username, email, password, phoneNumber, dob, "USER", height, weight);
+                    userQuery.add(user);
+                    Toast.makeText(getBaseContext(), "Thêm người dùng thành công", Toast.LENGTH_SHORT).show();
+                    reset();
+                    setResult(RESULT_OK, null);
+                    finish();
+                }
             }
         });
     }

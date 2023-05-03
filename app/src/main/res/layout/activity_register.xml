@@ -63,7 +63,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="18dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:hint="Số điện thoại"
         android:textColor="@color/black"
         android:textSize="16dp"
