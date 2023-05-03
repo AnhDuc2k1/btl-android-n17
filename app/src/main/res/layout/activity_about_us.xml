@@ -72,14 +72,15 @@
         android:id="@+id/textView24"
         android:layout_width="350dp"
         android:layout_height="500dp"
+        android:justificationMode="inter_word"
         android:letterSpacing="0.15"
         android:text="     Trong nhiều năm tâm huyết với nghề y, bác sĩ Thành – người sáng lập ra Phòng khám P đã không ngừng trăn trở về những bất cập cũng như khó khăn của người dân khi đến khám bệnh tại các bệnh viện.   \n    Thực tế, nền y học nước nhà không hề thua kém các nước trên thế giới, thế nhưng người dân vẫn có những lo ngại khi đến khám bệnh tại các bệnh viện. Vấn đề chờ đợi, chen lấn, tốn kém, căng thẳng, thậm chí “quan liêu”… là những nỗi niềm muôn thuở của người dân.   \n   Để giảm bớt những trăn trở của người dân, chúng tôi cho ra mắt ứng dụng đặt lịch khám P-Healthcare. Ứng dụng cung cấp chức năng chính là đặt lịch khám bệnh tại phòng khám P. Giúp người dân chủ động lựa chọn thời gian và dịch vụ khám phù hợp, nhanh chóng."
         android:textColor="@color/black"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
+        app:layout_constraintVertical_bias="0.775" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,11 +2,11 @@
     <string name="app_name">HealthCare</string>
 
     <string-array name="department">
-            <item>Khoa Hô hấp</item>
-            <item>Khoa Nội chung</item>
-            <item>Khoa Ngoại chung</item>
-            <item>Khoa Cơ - Xương khớp</item>
-            <item>Khoa Răng - Hàm - Mặt</item>
-            <item>Khoa Tai Mũi Họng</item>
+        <item>Khoa Hô hấp</item>
+        <item>Khoa Nội chung</item>
+        <item>Khoa Ngoại chung</item>
+        <item>Khoa Cơ - Xương khớp</item>
+        <item>Khoa Răng - Hàm - Mặt</item>
+        <item>Khoa Tai Mũi Họng</item>
     </string-array>
 </resources>

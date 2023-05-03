@@ -11,6 +11,7 @@ public class ExaminationSchedule implements Serializable {
     private String examinationTime;
     private String examinationDate;
     private String status;
+    private int price;
     private int userId;
     private int labtestId;
     private int doctorId;
@@ -18,11 +19,13 @@ public class ExaminationSchedule implements Serializable {
     public ExaminationSchedule() {
     }
 
-    public ExaminationSchedule(int id, String examinationTime, String examinationDate, String status, int userId, int labtestId, int doctorId) {
+    public ExaminationSchedule(int id, String examinationTime, String examinationDate, String status,
+                               int price, int userId, int labtestId, int doctorId) {
         this.id = id;
         this.examinationTime = examinationTime;
         this.examinationDate = examinationDate;
         this.status = status;
+        this.price = price;
         this.userId = userId;
         this.labtestId = labtestId;
         this.doctorId = doctorId;
@@ -82,6 +85,14 @@ public class ExaminationSchedule implements Serializable {
 
     public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @NonNull

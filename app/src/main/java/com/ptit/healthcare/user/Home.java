@@ -20,6 +20,7 @@ import com.ptit.healthcare.entities.User;
 import com.ptit.healthcare.user.authentication.Login;
 import com.ptit.healthcare.user.authentication.Register;
 import com.ptit.healthcare.user.booking.BookingLabtest;
+import com.ptit.healthcare.user.bookinghistory.BookingHistory;
 
 public class Home extends AppCompatActivity {
     private TextView textViewTime;
@@ -73,6 +74,15 @@ public class Home extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), BookingLabtest.class);
                 intent.putExtra("userId", String.valueOf(id));
                 intent.putExtra("username", usernameIntent);
+                startActivity(intent);
+            }
+        });
+
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), BookingHistory.class);
+                intent.putExtra("userId", String.valueOf(id));
                 startActivity(intent);
             }
         });

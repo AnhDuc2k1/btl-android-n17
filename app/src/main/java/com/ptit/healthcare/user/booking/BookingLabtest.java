@@ -109,7 +109,7 @@ public class BookingLabtest extends AppCompatActivity {
         labtestDetailIntent.putExtra("labtestName", labtest.getName());
         labtestDetailIntent.putExtra("price", String.valueOf(labtest.getPrice()));
         labtestDetailIntent.putExtra("description", String.valueOf(labtest.getDescription()));
-
+        labtestDetailIntent.putExtra("departmentId", String.valueOf(labtest.getDepartmentId()));
         startActivity(labtestDetailIntent);
     }
 }

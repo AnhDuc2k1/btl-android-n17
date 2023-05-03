@@ -20,6 +20,7 @@ public class ExaminationScheduleQuery {
     private static final String EXAMINATION_TIME = "examinationTime";
     private static final String EXAMINATION_DATE = "examinationDate";
     private static final String STATUS = "status";
+    private static final String PRICE = "price";
     private static final String USER_ID = "userID";
     private static final String LABTEST_ID = "labtestID";
     private static final String DOCTOR_ID = "doctorID";
@@ -42,9 +43,10 @@ public class ExaminationScheduleQuery {
                 examinationSchedule.setExaminationTime(cursor.getString(1));
                 examinationSchedule.setExaminationDate(cursor.getString(2));
                 examinationSchedule.setStatus(cursor.getString(3));
-                examinationSchedule.setUserId(cursor.getInt(4));
-                examinationSchedule.setLabtestId(cursor.getInt(5));
-                examinationSchedule.setDoctorId(cursor.getInt(6));
+                examinationSchedule.setPrice(cursor.getInt(4));
+                examinationSchedule.setUserId(cursor.getInt(5));
+                examinationSchedule.setLabtestId(cursor.getInt(6));
+                examinationSchedule.setDoctorId(cursor.getInt(7));
 
                 examinationScheduleList.add(examinationSchedule);
             } while (cursor.moveToNext());
@@ -68,9 +70,10 @@ public class ExaminationScheduleQuery {
                 examinationSchedule.setExaminationTime(cursor.getString(1));
                 examinationSchedule.setExaminationDate(cursor.getString(2));
                 examinationSchedule.setStatus(cursor.getString(3));
-                examinationSchedule.setUserId(cursor.getInt(4));
-                examinationSchedule.setLabtestId(cursor.getInt(5));
-                examinationSchedule.setDoctorId(cursor.getInt(6));
+                examinationSchedule.setPrice(cursor.getInt(4));
+                examinationSchedule.setUserId(cursor.getInt(5));
+                examinationSchedule.setLabtestId(cursor.getInt(6));
+                examinationSchedule.setDoctorId(cursor.getInt(7));
 
                 examinationScheduleList.add(examinationSchedule);
             } while (cursor.moveToNext());
@@ -94,7 +97,7 @@ public class ExaminationScheduleQuery {
         ExaminationSchedule schedule = new ExaminationSchedule(cursor.getInt(0),
                 cursor.getString(1), cursor.getString(2),
                 cursor.getString(3), cursor.getInt(4),
-                cursor.getInt(5), cursor.getInt(6));
+                cursor.getInt(5), cursor.getInt(6),cursor.getInt(7));
 
         cursor.close();
         db.close();
@@ -109,6 +112,7 @@ public class ExaminationScheduleQuery {
         values.put(EXAMINATION_TIME, examinationSchedule.getExaminationTime());
         values.put(EXAMINATION_DATE, examinationSchedule.getExaminationDate());
         values.put(STATUS, examinationSchedule.getStatus());
+        values.put(PRICE, examinationSchedule.getPrice());
         values.put(USER_ID, examinationSchedule.getUserId());
         values.put(LABTEST_ID, examinationSchedule.getLabtestId());
         values.put(DOCTOR_ID, examinationSchedule.getDoctorId());

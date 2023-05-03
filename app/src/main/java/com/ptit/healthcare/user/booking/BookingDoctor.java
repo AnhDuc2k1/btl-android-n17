@@ -38,13 +38,16 @@ public class BookingDoctor extends AppCompatActivity {
         btnTimKiem = findViewById(R.id.userBtnTKBacSi);
         dsBacSi = findViewById(R.id.userDanhSachBacSi);
 
-        loadListBacSi();
+        Intent intent = BookingDoctor.this.getIntent();
+        int departmentId = Integer.valueOf(intent.getStringExtra("departmentId"));
+
+        loadListBacSi(departmentId);
 
         btnTimKiem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = edTKBacSi.getText().toString();
-                loadListBSFindByName(name);
+                loadListBSFindByName(name, departmentId);
             }
         });
 
@@ -56,7 +59,7 @@ public class BookingDoctor extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                loadListBacSi();
+                loadListBacSi(departmentId);
             }
 
             @Override
@@ -66,9 +69,10 @@ public class BookingDoctor extends AppCompatActivity {
         });
     }
 
-    protected void loadListBacSi() {
+    protected void loadListBacSi(int departmentId) {
+
         DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
-        List<Doctor> doctorList = doctorQuery.getAll();
+        List<Doctor> doctorList = doctorQuery.getDoctorsJoinLabtestsByDepartmentID(departmentId);
 
         ListDoctorAdapter listDoctorAdapter = new ListDoctorAdapter(this, doctorList);
 
@@ -81,9 +85,9 @@ public class BookingDoctor extends AppCompatActivity {
         });
     }
 
-    public void loadListBSFindByName(String name) {
+    public void loadListBSFindByName(String name, int departmentId) {;
         DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
-        final List<Doctor> doctorList = doctorQuery.findDoctorByName(name);
+        final List<Doctor> doctorList = doctorQuery.getDoctorsJoinLabtestsByDepartmentIDFindByDoctorName(name, departmentId);
 
         ListDoctorAdapter adapter = new ListDoctorAdapter(BookingDoctor.this, doctorList);
         dsBacSi.setAdapter(adapter);

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/examinationDay"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="02"
+                    android:textColor="#FF0000"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/examinationMonth"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="T05"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/examinationYear"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="2023"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nameOfLabtest"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:text="Khám Sức khỏe tổng quát"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/examinationTime"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Giờ khám: 08:00"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Tổng tiền: 500.000 đ"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                   />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/bookingStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:text="Đang xử lý"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

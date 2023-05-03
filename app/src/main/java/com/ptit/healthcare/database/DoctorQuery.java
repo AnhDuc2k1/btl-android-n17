@@ -78,6 +78,62 @@ public class DoctorQuery {
         return listBS;
     }
 
+    public List<Doctor> getDoctorsJoinLabtestsByDepartmentID(int departmentIdOfLabtest){
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String sqlQuery = "SELECT DISTINCT d.id, d.doctor_name, d.phoneNumber, d.experience, d.departmentID "+
+                "FROM " + TABLE_NAME + " d, labtest l ON d.departmentID = l.departmentID " +
+                "where d.departmentID = " + departmentIdOfLabtest;
+
+        List<Doctor> listBS = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                Doctor doctor = new Doctor();
+                doctor.setId(cursor.getInt(0));
+                doctor.setName(cursor.getString(1));
+                doctor.setPhoneNumber(cursor.getString(2));
+                doctor.setExperience(cursor.getInt(3));
+                doctor.setDepartmentId(cursor.getInt(4));
+
+                listBS.add(doctor);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return listBS;
+    }
+    public List<Doctor> getDoctorsJoinLabtestsByDepartmentIDFindByDoctorName(String doctorName,
+                                                                             int departmentIdOfLabtest){
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String sqlQuery = "SELECT DISTINCT d.id, d.doctor_name, d.phoneNumber, d.experience, d.departmentID "+
+                "FROM " + TABLE_NAME + " d, labtest l ON d.departmentID = l.departmentID " +
+                "WHERE d.departmentID = " + departmentIdOfLabtest + " AND d.doctor_name =" + doctorName;
+
+        List<Doctor> listBS = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                Doctor doctor = new Doctor();
+                doctor.setId(cursor.getInt(0));
+                doctor.setName(cursor.getString(1));
+                doctor.setPhoneNumber(cursor.getString(2));
+                doctor.setExperience(cursor.getInt(3));
+                doctor.setDepartmentId(cursor.getInt(4));
+
+                listBS.add(doctor);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return listBS;
+    }
+
     public Doctor getSingle(int id) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{ID, NAME,PHONE_NUMBER,

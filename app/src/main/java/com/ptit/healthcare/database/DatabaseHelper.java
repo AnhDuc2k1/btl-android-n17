@@ -67,6 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "examinationTime TEXT, " +
                 "examinationDate TEXT, " +
                 "status TEXT, " +
+                "price INTEGER, " +
                 "userID INTEGER, " +
                 "labtestID INTEGER, " +
                 "doctorID INTEGER, " +
