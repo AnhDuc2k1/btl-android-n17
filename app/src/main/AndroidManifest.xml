@@ -11,8 +11,14 @@
         android:theme="@style/Theme.HealthCare"
         tools:targetApi="31">
         <activity
+            android:name=".admin.schedule.ScheduleDetail"
+            android:exported="false" />
+        <activity
+            android:name=".admin.schedule.ScheduleManagement"
+            android:exported="false" />
+        <activity
             android:name=".user.booking.Booking"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".user.booking.DoctorInfo"
             android:exported="false" />

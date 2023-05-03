@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.admin.doctor.DoctorManagement;
 import com.ptit.healthcare.admin.labtest.LabtestManagement;
+import com.ptit.healthcare.admin.schedule.ScheduleManagement;
 import com.ptit.healthcare.admin.user.UserManagement;
 
 import com.ptit.healthcare.utils.CurrentDateTime;
@@ -70,6 +71,14 @@ public class AdminManagement extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DoctorManagement.class);
+                startActivity(intent);
+            }
+        });
+
+        btnXacNhanLichKham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ScheduleManagement.class);
                 startActivity(intent);
             }
         });

@@ -165,7 +165,7 @@ public class UserQuery {
         contentValues.put("username", username);
         contentValues.put("phoneNumber", phoneNumber);
         contentValues.put("pass", pass);
-        contentValues.put("roles", "USER");
+        contentValues.put("roles", "ADMIN");
         long result = MyDB.insert("users", null, contentValues);
         if(result==-1) return false;
         else
