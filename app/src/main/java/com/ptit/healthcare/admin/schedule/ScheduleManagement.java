@@ -1,5 +1,6 @@
 package com.ptit.healthcare.admin.schedule;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.adapter.ListScheduleAdapter;
+import com.ptit.healthcare.admin.labtest.LabtestManagement;
 import com.ptit.healthcare.database.ExaminationScheduleQuery;
 import com.ptit.healthcare.entities.ExaminationSchedule;
 
@@ -62,7 +64,23 @@ public class ScheduleManagement extends AppCompatActivity {
         intentScheduleDetail.putExtra("time", examinationSchedule.getExaminationTime());
         intentScheduleDetail.putExtra("date", examinationSchedule.getExaminationDate());
 
-        startActivity(intentScheduleDetail);
+        startActivityForResult(intentScheduleDetail, 2);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if((resultCode == RESULT_OK) && (requestCode == 1)) {
+            Intent refresh = new Intent(this, ScheduleManagement.class);
+            startActivity(refresh);
+            this.finish();
+        }
+
+        if((resultCode == RESULT_OK) && (requestCode == 2)) {
+            Intent refresh = new Intent(this, ScheduleManagement.class);
+            startActivity(refresh);
+            this.finish();
+        }
     }
 }

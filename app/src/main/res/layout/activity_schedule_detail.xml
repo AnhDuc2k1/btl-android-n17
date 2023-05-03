@@ -131,7 +131,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/textViewDepartment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -140,7 +140,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textViewDateTime"
+                    android:id="@+id/textViewExperience"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Số năm kinh nghiệm: 5 năm"
@@ -189,7 +189,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/descriptionLabtest"
+                    android:id="@+id/textViewDescriptionLabtest"
                     android:layout_width="220dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="5dp"
