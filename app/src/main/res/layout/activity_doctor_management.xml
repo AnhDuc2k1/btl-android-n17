@@ -67,15 +67,16 @@
                     android:id="@+id/danhSachBacSi"
                     android:layout_marginTop="28dp"
                     android:layout_width="318dp"
-                    android:layout_height="376dp"
+                    android:layout_height="400dp"
                     android:layout_gravity="center"
                     tools:listitem="@layout/list_view_doctor" />
+
                 <Button
                     android:id="@+id/themBacSi"
                     android:layout_width="150dp"
                     android:layout_height="58dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="50dp"
                     android:backgroundTint="#FFFFFF"
                     android:fontFamily="sans-serif-black"
                     android:text="Thêm Bác Sĩ"

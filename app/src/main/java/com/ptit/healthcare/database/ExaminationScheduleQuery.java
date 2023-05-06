@@ -87,7 +87,7 @@ public class ExaminationScheduleQuery {
     public ExaminationSchedule getSingle(int id) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{ID, EXAMINATION_TIME, EXAMINATION_DATE,
-                        STATUS, USER_ID, LABTEST_ID, DOCTOR_ID}, ID + "=?",
+                        STATUS, PRICE, USER_ID, LABTEST_ID, DOCTOR_ID}, ID + "=?",
                 new String[]{String.valueOf(id)},null, null, null, null);
 
         if (cursor != null) {

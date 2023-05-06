@@ -41,7 +41,7 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
         btnChonGio = findViewById(R.id.userBtnChonGio);
 
         tvGioKham.setText(CurrentDateTime.getCurrentTime());
-        tvNgayKham.setText(CurrentDateTime.getCurrentDate());
+        tvNgayKham.setText("06:00");
 
         btnChonNgay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,10 +100,10 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
             m = "0" + m;
         }
         if (hourOfDay < 10) {
-            tvGioKham.setText("0" + hourOfDay + ":" + minute);
+            tvGioKham.setText("0" + hourOfDay + ":" + m);
         }
         else{
-            tvGioKham.setText(hourOfDay + ":" + minute);
+            tvGioKham.setText(hourOfDay + ":" + m);
         }
     }
 }

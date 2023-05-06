@@ -1,6 +1,7 @@
 package com.ptit.healthcare.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,12 @@ public class ListBookingHistoryAdapter extends ArrayAdapter<ExaminationSchedule>
         gioKham.setText("Giờ khám: " + schedule.getExaminationTime());
         tongTien.setText("Tổng tiền: " + schedule.getPrice());
 
+        if (schedule.getStatus().equals("Huỷ")){
+            trangThai.setTextColor(Color.parseColor("#FF0000"));
+        }
+        else {
+            trangThai.setTextColor(Color.parseColor("#32CD32"));
+        }
         trangThai.setText(schedule.getStatus());
 
         return convertView;

@@ -72,15 +72,15 @@
         android:layout_height="27dp"
         android:fontFamily="sans-serif"
         android:text="Xin chào, Admin"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.066" />
 
     <TextView
         android:id="@+id/dateTimeAdmin"
@@ -92,28 +92,27 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintHorizontal_bias="0.617"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099" />
+        app:layout_constraintVertical_bias="0.116" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView"
         android:layout_width="88dp"
         android:layout_height="83dp"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/admin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        android:scaleType="centerCrop"
-        android:padding="5dp"
+        app:layout_constraintVertical_bias="0.052"
         app:shapeAppearanceOverlay="@style/circle"
-        app:strokeWidth="1.5dp"
         app:strokeColor="#2D799B"
-        />
+        app:strokeWidth="1.5dp" />
 
     <View
         android:layout_width="325dp"
@@ -226,4 +225,17 @@
         app:layout_constraintVertical_bias="0.653"
         app:srcCompat="@drawable/flask_icon" />
 
+    <ImageButton
+        android:id="@+id/btnLogoutAdmin"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08"
+        app:srcCompat="@drawable/logout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

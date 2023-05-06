@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.adapter.ListScheduleAdapter;
+import com.ptit.healthcare.admin.AdminManagement;
 import com.ptit.healthcare.admin.labtest.LabtestManagement;
 import com.ptit.healthcare.database.ExaminationScheduleQuery;
 import com.ptit.healthcare.entities.ExaminationSchedule;
@@ -20,13 +22,14 @@ import java.util.List;
 public class ScheduleManagement extends AppCompatActivity {
 
     ListView listViewSchedule;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_management);
         listViewSchedule = findViewById(R.id.listSchedule);
-
+        btnBack = findViewById(R.id.btnBackListSchedule);
         loadListSchedule();
     }
 
@@ -52,6 +55,14 @@ public class ScheduleManagement extends AppCompatActivity {
         });
 
         registerForContextMenu(listViewSchedule);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AdminManagement.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void doOpenChildActivity(ExaminationSchedule examinationSchedule) {

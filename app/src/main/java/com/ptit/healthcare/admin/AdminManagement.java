@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import com.ptit.healthcare.admin.labtest.LabtestManagement;
 import com.ptit.healthcare.admin.schedule.ScheduleManagement;
 import com.ptit.healthcare.admin.user.UserManagement;
 
+import com.ptit.healthcare.user.authentication.Login;
 import com.ptit.healthcare.utils.CurrentDateTime;
 
 import java.text.ParseException;
@@ -29,6 +31,7 @@ public class AdminManagement extends AppCompatActivity {
 
     Button btnXacNhanLichKham;
 
+    ImageButton btnLogout;
     TextView textViewDateTimeAdmin;
 
     ImageView avatarAdmin;
@@ -42,6 +45,7 @@ public class AdminManagement extends AppCompatActivity {
         btnQuanLyNguoiDung = findViewById(R.id.quanLyNguoiDung);
         btnQuanLyGoiKham = findViewById(R.id.quanLyGoiKham);
         btnXacNhanLichKham = findViewById(R.id.xacNhanLichKham);
+        btnLogout = findViewById(R.id.btnLogoutAdmin);
         textViewDateTimeAdmin = findViewById(R.id.dateTimeAdmin);
         avatarAdmin = findViewById(R.id.imageView);
 
@@ -79,6 +83,16 @@ public class AdminManagement extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ScheduleManagement.class);
+                startActivity(intent);
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+//                intent.putExtra("userId", String.valueOf(id));
+//                intent.putExtra("username", usernameIntent);
                 startActivity(intent);
             }
         });

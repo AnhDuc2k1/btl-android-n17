@@ -21,8 +21,7 @@ import com.ptit.healthcare.utils.FormatCurrency;
 public class LabtestInfo extends AppCompatActivity {
 
     Button btnChonGoi, btnQuayLai;
-    TextView tvTenGoiKham, tvGiaKham, tvChuyenKhoa;
-    EditText edMoTaGoiKham;
+    TextView tvTenGoiKham, tvGiaKham, tvChuyenKhoa, edMoTaGoiKham;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +60,6 @@ public class LabtestInfo extends AppCompatActivity {
         btnChonGoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                LabtestQuery labtestQuery = new LabtestQuery(getBaseContext());
-//                Labtest labtest = labtestQuery.getSingle(labtestId);
-
                 ExaminationSchedule schedule = new ExaminationSchedule();
 
                 schedule.setUserId(userId);

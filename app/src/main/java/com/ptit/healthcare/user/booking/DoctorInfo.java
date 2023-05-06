@@ -34,7 +34,7 @@ public class DoctorInfo extends AppCompatActivity {
         tvTenBs.setText(intent.getStringExtra("doctorName"));
         tvChuyenKhoa.setText(intent.getStringExtra("department"));
         tvSDT.setText(intent.getStringExtra("phoneNumber"));
-        tvKinhNghiem.setText(intent.getStringExtra("experience"));
+        tvKinhNghiem.setText(intent.getStringExtra("experience") + " năm");
 
         btnQuayLai.setOnClickListener(new View.OnClickListener() {
             @Override

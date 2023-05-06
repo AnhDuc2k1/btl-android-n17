@@ -44,7 +44,7 @@ public class UserQuery {
 
     public List<User> getAll() {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        String sqlQuery = "SELECT * FROM " + TABLE_NAME;
+        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE "+ ROLES+ "='USER'";
         List<User> users = new ArrayList<>();
 
         Cursor cursor = db.rawQuery(sqlQuery, null);
@@ -71,7 +71,7 @@ public class UserQuery {
 
     public List<User> findAllByName(String name) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + NAME
+        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + ROLES+ "='USER' AND" + NAME
                 + " LIKE '%" + name + "%'";
 
         List<User> users = new ArrayList<>();

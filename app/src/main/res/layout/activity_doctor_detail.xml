@@ -52,7 +52,7 @@
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="200dp"
-                    android:layout_height="110dp"
+                    android:layout_height="180dp"
 
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="30dp"
@@ -165,12 +165,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="78dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnCapNhat"
                 android:layout_width="120dp"
-                android:layout_height="40dp"
+                android:layout_height="52dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:text="Cập nhật"
@@ -182,8 +183,8 @@
             <Button
                 android:id="@+id/btnHuy"
                 android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:text="Hủy"
+                android:layout_height="52dp"
+                android:text="Trở về"
                 android:textColor="#100F0F"
                 app:backgroundTint="@color/white"
                 app:strokeColor="#2D799B"

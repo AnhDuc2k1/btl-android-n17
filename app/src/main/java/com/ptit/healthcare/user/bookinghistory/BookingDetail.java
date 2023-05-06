@@ -3,10 +3,12 @@ package com.ptit.healthcare.user.bookinghistory;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.DepartmentQuery;
@@ -16,6 +18,7 @@ import com.ptit.healthcare.database.LabtestQuery;
 import com.ptit.healthcare.entities.Department;
 import com.ptit.healthcare.entities.Doctor;
 import com.ptit.healthcare.entities.Labtest;
+import com.ptit.healthcare.utils.FormatCurrency;
 
 public class BookingDetail extends AppCompatActivity {
 
@@ -46,9 +49,10 @@ public class BookingDetail extends AppCompatActivity {
         int userId = Integer.valueOf(intent.getStringExtra("userId"));
         int labtestId = Integer.valueOf(intent.getStringExtra("labtestId"));
         int doctorId = Integer.valueOf(intent.getStringExtra("doctorId"));
+        int scheduleId = Integer.valueOf(intent.getStringExtra("scheduleId"));
         String examinationTime = intent.getStringExtra("examinationTime");
         String examinationDate = intent.getStringExtra("examinationDate");
-        String price = intent.getStringExtra("price");
+        int price = Integer.valueOf(intent.getStringExtra("price"));
         String status = intent.getStringExtra("status");
 
         LabtestQuery labtestQuery = new LabtestQuery(getBaseContext());
@@ -65,7 +69,7 @@ public class BookingDetail extends AppCompatActivity {
         tvBookingLabtestName.setText(labtest.getName());
         tvBookingExaminationTime.setText(examinationTime);
         tvBookingExaminationDate.setText(examinationDate);
-        tvBookingPrice.setText(price);
+        tvBookingPrice.setText(FormatCurrency.formatCurrencyVN(price));
         tvBookingStatus2.setText(status);
         tvBookingLabtestDescription.setText(labtest.getDescription());
         tvBookingDoctorName.setText(doctor.getName());
@@ -80,11 +84,19 @@ public class BookingDetail extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent1 = new Intent(getApplicationContext(), BookingHistory.class);
                     intent1.putExtra("userId", String.valueOf(userId));
-//                    star
+                    scheduleQuery.update(scheduleId, "Hủy");
+                    Toast.makeText(getBaseContext(),"Hủy lịch khám thành công.",Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             });
         }
         else {
+            if (status.equals("Huỷ")){
+                tvBookingStatus2.setTextColor(Color.parseColor("#FF0000"));
+            }
+            else {
+                tvBookingStatus2.setTextColor(Color.parseColor("#32CD32"));
+            }
             btnBookingHistory.setText("Trở lại");
             btnBookingHistory.setOnClickListener(new View.OnClickListener() {
                 @Override

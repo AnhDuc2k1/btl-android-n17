@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.DepartmentQuery;
@@ -87,7 +88,7 @@ public class ScheduleDetail extends AppCompatActivity {
                 scheduleQuery.update(id, "Xác nhận");
                 Intent intent1 = new Intent(v.getContext(), ScheduleManagement.class);
                 startActivity(intent1);
-
+                Toast.makeText(getBaseContext(),"Xác nhận lịch khám thành công",Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, null);
                 finish();
             }
@@ -99,6 +100,7 @@ public class ScheduleDetail extends AppCompatActivity {
                 scheduleQuery.update(id, "Hủy");
                 Intent intent1 = new Intent(v.getContext(), ScheduleManagement.class);
                 startActivity(intent1);
+                Toast.makeText(getBaseContext(),"Hủy lịch khám thành công",Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, null);
                 finish();
             }
