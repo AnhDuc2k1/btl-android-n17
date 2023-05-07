@@ -66,11 +66,6 @@ public class LabtestDetail extends AppCompatActivity implements AdapterView.OnIt
                     return;
                 }
 
-                if (editTextDescription.getText().toString().isEmpty()) {
-                    editTextDescription.setError("Vui lòng điền mô tả");
-                    return;
-                }
-
                 String labtestName = editTextLabtestName.getText().toString();
                 int price = Integer.parseInt(editTextPrice.getText().toString());
                 String description = editTextDescription.getText().toString();

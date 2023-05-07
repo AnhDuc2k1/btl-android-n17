@@ -21,7 +21,7 @@ import com.ptit.healthcare.utils.ValidateField;
 public class AddDoctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button btnThemBS;
-    EditText editTextTenBS , editTextSDT, editTextKinhNghiem;
+    EditText editTextTenBS, editTextSDT, editTextKinhNghiem;
     Spinner spinnerChuyenKhoa;
     String chuyenKhoa;
 
@@ -34,8 +34,6 @@ public class AddDoctor extends AppCompatActivity implements AdapterView.OnItemSe
         spinnerChuyenKhoa = findViewById(R.id.editTextChuyenKhoa);
         editTextSDT = findViewById(R.id.editTextSDT);
         editTextKinhNghiem = findViewById(R.id.editTextKinhNghiem);
-
-
 
 
         // create spinner
@@ -73,13 +71,10 @@ public class AddDoctor extends AppCompatActivity implements AdapterView.OnItemSe
                 int departmentId = departmentQuery.getDepartmentByName(chuyenKhoa).getId();
 
 
-
-
-
                 Doctor newDoctor = new Doctor(name, phoneNumber, experience, departmentId);
 
                 doctorQuery.add(newDoctor);
-                Toast.makeText(getBaseContext(),"Thêm bác sĩ thành công",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Thêm bác sĩ thành công", Toast.LENGTH_SHORT).show();
                 reset();
                 setResult(RESULT_OK, null);
                 finish();
@@ -87,8 +82,7 @@ public class AddDoctor extends AppCompatActivity implements AdapterView.OnItemSe
         });
     }
 
-    protected  void reset()
-    {
+    protected void reset() {
         editTextTenBS.setText("");
         editTextSDT.setText("");
         editTextKinhNghiem.setText("");

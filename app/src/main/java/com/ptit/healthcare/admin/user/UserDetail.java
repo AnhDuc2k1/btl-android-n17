@@ -41,6 +41,41 @@ public class UserDetail extends AppCompatActivity {
         btnAddNewStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (editTextUsername.getText().toString().isEmpty()) {
+                    editTextUsername.setError("Vui Lòng điền tên");
+                    return;
+                }
+
+                if (editTextEmail.getText().toString().isEmpty()) {
+                    editTextEmail.setError("Vui Lòng điền tên email");
+                    return;
+                }
+
+                if (editTextPassword.getText().toString().isEmpty()) {
+                    editTextPassword.setError("Vui Lòng điền tên mật khẩu");
+                    return;
+                }
+
+                if (editTextPhoneNumber.getText().toString().isEmpty() || !ValidateField.validatePhoneNumber(editTextPhoneNumber.getText().toString())) {
+                    editTextPhoneNumber.setError("Vui lòng điền SDT");
+                    return;
+                }
+
+                if (editTextDob.getText().toString().isEmpty()) {
+                    editTextDob.setError("Vui lòng điền ngày sinh");
+                    return;
+                }
+
+                if (editTextWeight.getText().toString().isEmpty()) {
+                    editTextWeight.setError("Vui lòng điền ngày sinh");
+                    return;
+                }
+
+                if (editTextHeight.getText().toString().isEmpty()) {
+                    editTextHeight.setError("Vui lòng điền ngày sinh");
+                    return;
+                }
+
                 if(!ValidateField.validateEmail(editTextEmail.getText().toString())) {
                     Toast.makeText(UserDetail.this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
                 }

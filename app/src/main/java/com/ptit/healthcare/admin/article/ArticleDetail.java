@@ -29,13 +29,13 @@ public class ArticleDetail extends AppCompatActivity implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
 
-        Intent intent=ArticleDetail.this.getIntent();
+        Intent intent = ArticleDetail.this.getIntent();
 
-        final EditText editTextIDBB=(EditText)findViewById(R.id.edID);
-        final EditText editTextTenBB=(EditText)findViewById(R.id.edTenBB);
-        final EditText editTextAnh=(EditText)findViewById(R.id.edAnh);
-        final EditText editTextNoiDung=(EditText)findViewById(R.id.edNoidung);
-        final EditText editTextUrl=(EditText)findViewById(R.id.edUrl);
+        final EditText editTextIDBB = (EditText) findViewById(R.id.edID);
+        final EditText editTextTenBB = (EditText) findViewById(R.id.edTenBB);
+        final EditText editTextAnh = (EditText) findViewById(R.id.edAnh);
+        final EditText editTextNoiDung = (EditText) findViewById(R.id.edNoidung);
+        final EditText editTextUrl = (EditText) findViewById(R.id.edUrl);
 
         editTextIDBB.setText(intent.getStringExtra("idBB"));
         editTextTenBB.setText(intent.getStringExtra("tenBB"));
@@ -49,28 +49,27 @@ public class ArticleDetail extends AppCompatActivity implements AdapterView.OnIt
         editTextNoiDung.setEnabled(false);
         editTextUrl.setEnabled(false);
 
-        btnHuy=findViewById(R.id.btnHuyArticle);
-        btnCapNhat=findViewById(R.id.btnCapNhatArticle);
-        cbCapNhat=findViewById(R.id.checkboxCapNhatArticle);
+        btnHuy = findViewById(R.id.btnHuyArticle);
+        btnCapNhat = findViewById(R.id.btnCapNhatArticle);
+        cbCapNhat = findViewById(R.id.checkboxCapNhatArticle);
 
         cbCapNhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!state){
+                if (!state) {
                     editTextIDBB.setEnabled(false);
                     editTextTenBB.setEnabled(true);
                     editTextAnh.setEnabled(true);
                     editTextNoiDung.setEnabled(true);
                     editTextUrl.setEnabled(true);
-                    state=true;
-                }
-                else {
+                    state = true;
+                } else {
                     editTextIDBB.setEnabled(false);
                     editTextTenBB.setEnabled(false);
                     editTextAnh.setEnabled(false);
                     editTextNoiDung.setEnabled(false);
                     editTextUrl.setEnabled(false);
-                    state=false;
+                    state = false;
                 }
             }
         });
@@ -94,11 +93,9 @@ public class ArticleDetail extends AppCompatActivity implements AdapterView.OnIt
                 article.setUrl(editTextUrl.getText().toString());
 
                 int result = articleQuery.update(article);
-                if (result > 0)
-                {
+                if (result > 0) {
                     Toast.makeText(getBaseContext(), "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(getBaseContext(), "Cập nhật thông tin không thành công!", Toast.LENGTH_SHORT).show();
                 }
 
