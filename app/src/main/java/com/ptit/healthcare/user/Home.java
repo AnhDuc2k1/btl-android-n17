@@ -17,6 +17,7 @@ import java.util.Locale;
 import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.UserQuery;
 import com.ptit.healthcare.entities.User;
+import com.ptit.healthcare.user.article.ArticleView;
 import com.ptit.healthcare.user.authentication.Login;
 import com.ptit.healthcare.user.authentication.Register;
 import com.ptit.healthcare.user.booking.BookingLabtest;
@@ -114,6 +115,14 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AboutUs.class);
+                startActivity(intent);
+            }
+        });
+
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ArticleView.class);
                 startActivity(intent);
             }
         });

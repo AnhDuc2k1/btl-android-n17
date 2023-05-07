@@ -22,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.658"
+        app:layout_constraintVertical_bias="0.605"
         app:strokeColor="#2D799B"
         app:strokeWidth="1.5dp" />
 
@@ -32,19 +32,19 @@
         android:layout_height="70dp"
         android:backgroundTint="#FFFFFF"
         android:elevation="10dp"
+        android:fontFamily="sans-serif-black"
         android:padding="15dp"
         android:text="Xác Nhận Lịch Khám"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.728"
+        app:layout_constraintHorizontal_bias="0.715"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.836"
+        app:layout_constraintVertical_bias="0.744"
         app:strokeColor="#2D799B"
-        app:strokeWidth="1.5dp"
-        android:fontFamily="sans-serif-black"
-        android:textColor="#000000"
-        android:textSize="16sp" />
+        app:strokeWidth="1.5dp" />
 
     <Button
         android:id="@+id/quanLyNguoiDung"
@@ -62,7 +62,7 @@
         app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487"
+        app:layout_constraintVertical_bias="0.452"
         app:strokeColor="#2D799B"
         app:strokeWidth="1.5dp" />
 
@@ -195,10 +195,10 @@
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825"
+        app:layout_constraintVertical_bias="0.734"
         app:srcCompat="@drawable/schedule" />
 
     <ImageView
@@ -210,7 +210,7 @@
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486"
+        app:layout_constraintVertical_bias="0.456"
         app:srcCompat="@drawable/user" />
 
     <ImageView
@@ -222,7 +222,7 @@
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653"
+        app:layout_constraintVertical_bias="0.602"
         app:srcCompat="@drawable/flask_icon" />
 
     <ImageButton
@@ -238,4 +238,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08"
         app:srcCompat="@drawable/logout" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="66dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        app:srcCompat="@drawable/article" />
+
+    <Button
+        android:id="@+id/btnQuanLyBaiBao"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFFFFF"
+        android:elevation="10dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="15dp"
+        android:text="QUẢN LÝ BẢN TIN"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.728"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.866"
+        app:strokeColor="#2D799B"
+        app:strokeWidth="1.5dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

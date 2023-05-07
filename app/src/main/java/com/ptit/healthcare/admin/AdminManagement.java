@@ -2,6 +2,7 @@ package com.ptit.healthcare.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ptit.healthcare.R;
+import com.ptit.healthcare.admin.article.ArticleManagement;
 import com.ptit.healthcare.admin.doctor.DoctorManagement;
 import com.ptit.healthcare.admin.labtest.LabtestManagement;
 import com.ptit.healthcare.admin.schedule.ScheduleManagement;
@@ -36,6 +38,9 @@ public class AdminManagement extends AppCompatActivity {
 
     ImageView avatarAdmin;
 
+    Button btnQuanLyBaiBao;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +53,7 @@ public class AdminManagement extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogoutAdmin);
         textViewDateTimeAdmin = findViewById(R.id.dateTimeAdmin);
         avatarAdmin = findViewById(R.id.imageView);
+        btnQuanLyBaiBao = findViewById(R.id.btnQuanLyBaiBao);
 
         try {
             textViewDateTimeAdmin.setText(CurrentDateTime.getCurrentDateTime());
@@ -93,6 +99,14 @@ public class AdminManagement extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Login.class);
 //                intent.putExtra("userId", String.valueOf(id));
 //                intent.putExtra("username", usernameIntent);
+                startActivity(intent);
+            }
+        });
+
+        btnQuanLyBaiBao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ArticleManagement.class);
                 startActivity(intent);
             }
         });

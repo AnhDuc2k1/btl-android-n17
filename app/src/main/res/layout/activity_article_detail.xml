@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.doctor.DoctorDetail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/yelow"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textViewThongTinChiTietBB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Thông tin Bài Báo"
+                    android:textColor="#000000"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@android:drawable/editbox_dropdown_light_frame"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="200dp"
+                    android:layout_height="110dp"
+
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:src="@drawable/newspaper"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.185"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="20dp">
+
+                <TextView
+                    android:background="@color/white"
+                    android:text="ID:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <EditText
+                    android:id="@+id/edID"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="-30dp"
+                    android:textStyle="bold"></EditText>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="20dp">
+
+                <TextView
+                    android:background="@color/white"
+                    android:text="Tên bài báo:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <EditText
+                    android:id="@+id/edTenBB"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="-30dp"
+                    ></EditText>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="20dp">
+
+                <TextView
+                    android:text="Ảnh:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <EditText
+                    android:id="@+id/edAnh"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="-30dp"
+                    ></EditText>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="Nội dung:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <EditText
+                    android:id="@+id/edNoidung"
+                    android:layout_width="180dp"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="-30dp"
+                    android:textStyle="bold"></EditText>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="20dp">
+
+                <TextView
+                    android:text="Url:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"></TextView>
+
+                <EditText
+                    android:id="@+id/edUrl"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="-30dp"
+                    android:textStyle="bold"
+                    android:inputType="number"></EditText>
+            </TableRow>
+
+            <TableRow android:layout_marginTop="20dp">
+
+                <CheckBox
+                    android:id="@+id/checkboxCapNhatArticle"
+                    android:layout_marginLeft="20dp"
+                    android:text="Thay đổi thông tin"
+                    android:textColor="@color/black"></CheckBox>
+
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCapNhatArticle"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="Cập nhật"
+                android:textColor="#100F0F"
+                app:backgroundTint="@color/white"
+                app:strokeColor="#2D799B"
+                app:strokeWidth="3dp"></Button>
+
+            <Button
+                android:id="@+id/btnHuyArticle"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:text="Hủy"
+                android:textColor="#100F0F"
+                app:backgroundTint="@color/white"
+                app:strokeColor="#2D799B"
+                app:strokeWidth="3dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
