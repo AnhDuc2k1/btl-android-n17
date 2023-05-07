@@ -16,6 +16,7 @@ import com.ptit.healthcare.database.DepartmentQuery;
 import com.ptit.healthcare.database.LabtestQuery;
 import com.ptit.healthcare.entities.Department;
 import com.ptit.healthcare.entities.Labtest;
+import com.ptit.healthcare.utils.ValidateField;
 
 public class LabtestDetail extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -48,6 +49,27 @@ public class LabtestDetail extends AppCompatActivity implements AdapterView.OnIt
             public void onClick(View v) {
                 LabtestQuery labtestQuery = new LabtestQuery(getBaseContext());
                 DepartmentQuery departmentQuery = new DepartmentQuery(getBaseContext());
+
+                if (editTextLabtestName.getText().toString().isEmpty()) {
+                    editTextLabtestName.setError("Vui Lòng điền tên gói khám");
+                    return;
+                }
+
+                if (editTextPrice.getText().toString().isEmpty()) {
+                    editTextPrice.setError("Vui lòng điền giá");
+                    return;
+                }
+
+
+                if (editTextDescription.getText().toString().isEmpty()) {
+                    editTextDescription.setError("Vui lòng điền mô tả");
+                    return;
+                }
+
+                if (editTextDescription.getText().toString().isEmpty()) {
+                    editTextDescription.setError("Vui lòng điền mô tả");
+                    return;
+                }
 
                 String labtestName = editTextLabtestName.getText().toString();
                 int price = Integer.parseInt(editTextPrice.getText().toString());

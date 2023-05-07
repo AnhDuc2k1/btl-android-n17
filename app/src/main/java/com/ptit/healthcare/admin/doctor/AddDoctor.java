@@ -16,6 +16,7 @@ import com.ptit.healthcare.R;
 import com.ptit.healthcare.database.DepartmentQuery;
 import com.ptit.healthcare.database.DoctorQuery;
 import com.ptit.healthcare.entities.Doctor;
+import com.ptit.healthcare.utils.ValidateField;
 
 public class AddDoctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -34,6 +35,9 @@ public class AddDoctor extends AppCompatActivity implements AdapterView.OnItemSe
         editTextSDT = findViewById(R.id.editTextSDT);
         editTextKinhNghiem = findViewById(R.id.editTextKinhNghiem);
 
+
+
+
         // create spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.department, android.R.layout.simple_spinner_item);
@@ -47,10 +51,30 @@ public class AddDoctor extends AppCompatActivity implements AdapterView.OnItemSe
                 DoctorQuery doctorQuery = new DoctorQuery(getBaseContext());
                 DepartmentQuery departmentQuery = new DepartmentQuery(getBaseContext());
 
+                if (editTextTenBS.getText().toString().isEmpty()) {
+                    editTextTenBS.setError("Vui Lòng điền tên");
+                    return;
+                }
+
+                if (editTextSDT.getText().toString().isEmpty() || !ValidateField.validatePhoneNumber(editTextSDT.getText().toString())) {
+                    editTextSDT.setError("Vui lòng điền SDT");
+                    return;
+                }
+
+
+                if (editTextKinhNghiem.getText().toString().isEmpty()) {
+                    editTextKinhNghiem.setError("Vui lòng điền số năm kinh nghiệm");
+                    return;
+                }
+
                 String name = editTextTenBS.getText().toString();
                 String phoneNumber = editTextSDT.getText().toString();
                 int experience = Integer.parseInt(editTextKinhNghiem.getText().toString());
                 int departmentId = departmentQuery.getDepartmentByName(chuyenKhoa).getId();
+
+
+
+
 
                 Doctor newDoctor = new Doctor(name, phoneNumber, experience, departmentId);
 
