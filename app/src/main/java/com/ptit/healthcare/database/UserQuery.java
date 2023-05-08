@@ -71,7 +71,7 @@ public class UserQuery {
 
     public List<User> findAllByName(String name) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + ROLES+ "='USER' AND" + NAME
+        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + ROLES+ "='USER' AND " + NAME
                 + " LIKE '%" + name + "%'";
 
         List<User> users = new ArrayList<>();

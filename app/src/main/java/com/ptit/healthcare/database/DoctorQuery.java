@@ -110,7 +110,7 @@ public class DoctorQuery {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         String sqlQuery = "SELECT DISTINCT d.id, d.doctor_name, d.phoneNumber, d.experience, d.departmentID "+
                 "FROM " + TABLE_NAME + " d, labtest l ON d.departmentID = l.departmentID " +
-                "WHERE d.departmentID = " + departmentIdOfLabtest + " AND d.doctor_name =" + doctorName;
+                "WHERE d.departmentID = " + departmentIdOfLabtest + " AND d.doctor_name LIKE '%" + doctorName + "%'";
 
         List<Doctor> listBS = new ArrayList<>();
 
