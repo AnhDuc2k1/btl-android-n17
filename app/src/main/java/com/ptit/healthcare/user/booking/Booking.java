@@ -40,8 +40,8 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
         btnChonNgay = findViewById(R.id.userBtnChonNgay);
         btnChonGio = findViewById(R.id.userBtnChonGio);
 
-        tvGioKham.setText(CurrentDateTime.getCurrentTime());
-        tvNgayKham.setText("06:00");
+        tvGioKham.setText("06:00");
+        tvNgayKham.setText(CurrentDateTime.getCurrentDate());
 
         btnChonNgay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +73,7 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
                 schedule.setExaminationTime(time);
                 schedule.setExaminationDate(date);
 
-                if (!query.getScheduleByExamTime(time, date)){
+                if (!query.getScheduleByExamTime(schedule.getLabtestId(), schedule.getDoctorId(),time, date)){
                     Toast.makeText(getBaseContext(),"Đặt lịch khám không thành công do thời gian bị trùng!",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -95,8 +95,14 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         month ++;
-        String date = dayOfMonth +"/" +month + "/" + year;
-        tvNgayKham.setText(date);
+        if (month < 10) {
+            String date = dayOfMonth +"/0" +month + "/" + year;
+            tvNgayKham.setText(date);
+        }
+        else{
+            String date = dayOfMonth +"/" +month + "/" + year;
+            tvNgayKham.setText(date);
+        }
     }
 
     @Override
