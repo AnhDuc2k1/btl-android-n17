@@ -7,8 +7,8 @@
     tools:context=".admin.doctor.DoctorDetail">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="492dp"
+        android:layout_height="784dp"
         android:layout_marginBottom="16dp"
         android:background="@color/white"
         android:orientation="vertical"
@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/yelow"
                 android:gravity="center"
-                android:padding="10dp">
+                android:padding="1dp">
 
                 <TextView
                     android:id="@+id/textViewThongTinChiTietBB"
@@ -44,10 +44,10 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="149dp"
                 android:background="@android:drawable/editbox_dropdown_light_frame"
                 android:gravity="center"
-                android:padding="10dp">
+                android:padding="3dp">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -65,98 +65,114 @@
                     app:layout_constraintVertical_bias="0.8" />
             </TableRow>
 
-            <TableRow android:layout_marginTop="20dp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
 
                 <TextView
+                    android:layout_width="144dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
                     android:background="@color/white"
                     android:text="ID:"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
                 <EditText
                     android:id="@+id/edID"
+                    android:layout_marginRight="-1dp"
                     android:textSize="14sp"
-                    android:layout_marginLeft="-30dp"
                     android:textStyle="bold"></EditText>
             </TableRow>
 
             <TableRow android:layout_marginTop="20dp">
 
                 <TextView
+                    android:layout_marginLeft="40dp"
                     android:background="@color/white"
                     android:text="Tên bài báo:"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
                 <EditText
                     android:id="@+id/edTenBB"
+                    android:layout_marginRight="-1dp"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="-30dp"
-                    ></EditText>
+                    android:textStyle="bold"></EditText>
             </TableRow>
 
             <TableRow android:layout_marginTop="20dp">
 
                 <TextView
+                    android:layout_marginLeft="40dp"
                     android:text="Ảnh:"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
                 <EditText
                     android:id="@+id/edAnh"
+                    android:layout_marginRight="-1dp"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="-30dp"
-                    ></EditText>
+                    android:textStyle="bold"></EditText>
+            </TableRow>
+
+            <TableRow
+                android:layout_height="72dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+
+                    android:text="Nội dung:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"></TextView>
+
+                <EditText
+                    android:id="@+id/edNoidung"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/custom_input_text_box"
+                    android:gravity="top"
+                    android:inputType="text|textMultiLine"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.86"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.578"></EditText>
             </TableRow>
 
             <TableRow android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_height="wrap_content"
-                    android:text="Nội dung:"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="20dp"
-                    android:textStyle="bold"></TextView>
-
-                <EditText
-                    android:id="@+id/edNoidung"
-                    android:layout_width="180dp"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="-30dp"
-                    android:textStyle="bold"></EditText>
-            </TableRow>
-
-            <TableRow android:layout_marginTop="20dp">
-
-                <TextView
+                    android:layout_marginLeft="40dp"
                     android:text="Url:"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:layout_marginLeft="20dp"
                     android:textStyle="bold"></TextView>
 
                 <EditText
                     android:id="@+id/edUrl"
+                    android:layout_marginRight="-1dp"
+                    android:inputType="number"
                     android:textSize="14sp"
-                    android:layout_marginLeft="-30dp"
-                    android:textStyle="bold"
-                    android:inputType="number"></EditText>
+                    android:textStyle="bold"></EditText>
             </TableRow>
 
             <TableRow android:layout_marginTop="20dp">
 
                 <CheckBox
                     android:id="@+id/checkboxCapNhatArticle"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="40dp"
                     android:text="Thay đổi thông tin"
                     android:textColor="@color/black"></CheckBox>
 
@@ -173,7 +189,7 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="200dp"
                 android:text="Cập nhật"
                 android:textColor="#100F0F"
                 app:backgroundTint="@color/white"
