@@ -43,6 +43,7 @@ public class BookingDetail extends AppCompatActivity {
         tvBookingDoctorDepartment = findViewById(R.id.bookingDoctorDepartment);
         tvBookingDoctorExperience = findViewById(R.id.bookingDoctorExperience);
         tvBookingDoctorPhoneNumber = findViewById(R.id.bookingDoctorPhoneNumber);
+        btnBookingHistory = findViewById(R.id.btnBookingHistory);
 
         Intent intent = BookingDetail.this.getIntent();
 
@@ -74,7 +75,7 @@ public class BookingDetail extends AppCompatActivity {
         tvBookingLabtestDescription.setText(labtest.getDescription());
         tvBookingDoctorName.setText(doctor.getName());
         tvBookingDoctorDepartment.setText(department.getName());
-        tvBookingDoctorExperience.setText(doctor.getExperience());
+        tvBookingDoctorExperience.setText(doctor.getExperience()+ " năm ");
         tvBookingDoctorPhoneNumber.setText(doctor.getPhoneNumber());
 
         if (status.equalsIgnoreCase("Đang xử lý...")){

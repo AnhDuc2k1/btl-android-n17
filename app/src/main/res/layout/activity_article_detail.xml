@@ -7,8 +7,8 @@
     tools:context=".admin.doctor.DoctorDetail">
 
     <LinearLayout
-        android:layout_width="492dp"
-        android:layout_height="784dp"
+        android:layout_width="490dp"
+        android:layout_height="796dp"
         android:layout_marginBottom="16dp"
         android:background="@color/white"
         android:orientation="vertical"
@@ -19,8 +19,9 @@
 
 
         <TableLayout
-            android:layout_width="match_parent"
+            android:layout_width="457dp"
             android:layout_height="wrap_content"
+
             android:layout_margin="15dp">
 
             <TableRow
@@ -44,7 +45,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="149dp"
+                android:layout_height="match_parent"
                 android:background="@android:drawable/editbox_dropdown_light_frame"
                 android:gravity="center"
                 android:padding="3dp">
@@ -66,12 +67,14 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="381dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp">
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp">
 
                 <TextView
-                    android:layout_width="144dp"
+                    android:layout_width="124dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:background="@color/white"
@@ -82,12 +85,16 @@
 
                 <EditText
                     android:id="@+id/edID"
-                    android:layout_marginRight="-1dp"
+                    android:layout_width="108dp"
+                    android:layout_marginLeft="-1dp"
                     android:textSize="14sp"
                     android:textStyle="bold"></EditText>
             </TableRow>
 
-            <TableRow android:layout_marginTop="20dp">
+            <TableRow
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp">
 
                 <TextView
                     android:layout_marginLeft="40dp"
@@ -104,7 +111,10 @@
                     android:textStyle="bold"></EditText>
             </TableRow>
 
-            <TableRow android:layout_marginTop="20dp">
+            <TableRow
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp">
 
                 <TextView
                     android:layout_marginLeft="40dp"
@@ -121,8 +131,11 @@
             </TableRow>
 
             <TableRow
-                android:layout_height="72dp"
-                android:layout_marginTop="20dp">
+                android:layout_width="426dp"
+                android:layout_height="149dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp">
 
                 <TextView
                     android:layout_height="wrap_content"
@@ -135,10 +148,11 @@
 
                 <EditText
                     android:id="@+id/edNoidung"
-                    android:layout_width="200dp"
+                    android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:background="@drawable/custom_input_text_box"
                     android:gravity="top"
+
                     android:inputType="text|textMultiLine"
                     android:padding="8dp"
                     android:textColor="@color/black"
@@ -150,7 +164,10 @@
                     app:layout_constraintVertical_bias="0.578"></EditText>
             </TableRow>
 
-            <TableRow android:layout_marginTop="20dp">
+            <TableRow
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp">
 
                 <TextView
                     android:layout_height="wrap_content"
@@ -163,7 +180,7 @@
                 <EditText
                     android:id="@+id/edUrl"
                     android:layout_marginRight="-1dp"
-                    android:inputType="number"
+                    android:inputType="textPersonName"
                     android:textSize="14sp"
                     android:textStyle="bold"></EditText>
             </TableRow>
@@ -180,8 +197,8 @@
         </TableLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="78dp"
+            android:layout_width="466dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
@@ -189,7 +206,7 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginRight="200dp"
+                android:layout_marginRight="150dp"
                 android:text="Cập nhật"
                 android:textColor="#100F0F"
                 app:backgroundTint="@color/white"

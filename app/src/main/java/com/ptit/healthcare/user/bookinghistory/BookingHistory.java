@@ -66,12 +66,12 @@ public class BookingHistory extends AppCompatActivity {
 
         bookingDetailIntent.putExtra("userId", String.valueOf(userId));
         bookingDetailIntent.putExtra("labtestId", String.valueOf(schedule.getLabtestId()));
-        bookingDetailIntent.putExtra("scheduleId", schedule.getId());
+        bookingDetailIntent.putExtra("scheduleId", String.valueOf(schedule.getId()));
         bookingDetailIntent.putExtra("examinationTime", schedule.getExaminationTime());
         bookingDetailIntent.putExtra("examinationDate", schedule.getExaminationDate());
         bookingDetailIntent.putExtra("price", String.valueOf(schedule.getPrice()));
         bookingDetailIntent.putExtra("status", schedule.getStatus());
-        bookingDetailIntent.putExtra("doctorId", schedule.getDoctorId());
+        bookingDetailIntent.putExtra("doctorId", String.valueOf(schedule.getDoctorId()));
 
         startActivity(bookingDetailIntent);
     }
