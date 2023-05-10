@@ -83,6 +83,17 @@ public class ExaminationScheduleQuery {
         db.close();
         return examinationScheduleList;
     }
+    public boolean getScheduleByExamTime(String time, String date){
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String sqlQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + EXAMINATION_TIME +" = '" + time
+                +"' AND " + EXAMINATION_DATE + " = '" + date + "'";
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+        if (cursor != null) {
+            return false;
+        }
+        return true;
+    }
 
     public ExaminationSchedule getSingle(int id) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();

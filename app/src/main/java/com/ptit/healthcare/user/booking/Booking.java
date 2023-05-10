@@ -73,14 +73,20 @@ public class Booking extends AppCompatActivity  implements DatePickerDialog.OnDa
                 schedule.setExaminationTime(time);
                 schedule.setExaminationDate(date);
 
-                query.add(schedule);
+                if (!query.getScheduleByExamTime(time, date)){
+                    Toast.makeText(getBaseContext(),"Đặt lịch khám không thành công do thời gian bị trùng!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    query.add(schedule);
 
-                Toast.makeText(getBaseContext(),"Đặt lịch khám thành công",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(),"Đặt lịch khám thành công",Toast.LENGTH_SHORT).show();
 
-                Intent homeIntent = new Intent(getApplicationContext(), Home.class);
-                homeIntent.putExtra("idUser", intent.getStringExtra("userId"));
-                homeIntent.putExtra("username", intent.getStringExtra("username"));
-                startActivity(homeIntent);
+                    Intent homeIntent = new Intent(getApplicationContext(), Home.class);
+                    homeIntent.putExtra("idUser", intent.getStringExtra("userId"));
+                    homeIntent.putExtra("username", intent.getStringExtra("username"));
+                    startActivity(homeIntent);
+                }
             }
         });
 
