@@ -67,7 +67,7 @@ public class ListBookingHistoryAdapter extends ArrayAdapter<ExaminationSchedule>
         if (schedule.getStatus().equals("Huỷ")){
             trangThai.setTextColor(Color.parseColor("#FF0000"));
         }
-        else {
+        else if (schedule.getStatus().equals("Xác nhận")){
             trangThai.setTextColor(Color.parseColor("#32CD32"));
         }
         trangThai.setText(schedule.getStatus());
